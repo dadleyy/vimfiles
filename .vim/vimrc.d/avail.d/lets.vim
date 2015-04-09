@@ -1,4 +1,5 @@
 let g:netrw_dirhistmax = 0
-let g:netrw_menu = 0
-let g:netrw_sort_by = '[\/]$,\<core\%(\.\d\+\)\=,\.[a-np-z]$,\.h$,\.c$,\.cpp$,*,\.o$,\.obj$,\.info$,\.swp$,\.bak$,\~$'
-let g:netrw_banner = 0 
+let g:netrw_sort_by = 'name'
+let g:netrw_list_hide = '.git,.sass-cache,node_modules,bower_components'
+let g:netrw_liststyle=3
+let g:netrw_altv=1
