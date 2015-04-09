@@ -1,1 +1,0 @@
-command! GitStatus git status
