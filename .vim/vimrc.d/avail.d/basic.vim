@@ -25,8 +25,11 @@ set smartcase
 
 " indent helpah
 set autoindent
+set smartindent
 
 " screw swap fils
 set noswapfile
 
 filetype indent plugin on
+autocmd CompleteDone * pclose
+set noerrorbells visualbell t_vb=
