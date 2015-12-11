@@ -1,5 +1,6 @@
 " open netrw
 noremap <leader>w :Vexplore<CR>
+noremap <leader>q :E<CR>
 
 " resource vimrc (and all configs)
 noremap <leader>sv :so $MYVIMRC<CR>
