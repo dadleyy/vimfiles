@@ -1,3 +1,8 @@
 .netrwhist
 /.vim/bundle/*
 /.vim/**/conf.d
+/.vim/autoload
+/.vim/.VimballRecord
+/.vim/doc
+/.vim/plugin
+/.vim/syntax
