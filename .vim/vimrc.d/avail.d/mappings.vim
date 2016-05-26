@@ -30,3 +30,11 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+" change colors
+nmap <leader>z <Plug>ColorstepPrev
+
+" fuzzy file finding
+noremap <Leader>t :CtrlP<CR>
+noremap <Leader>tf :CtrlPClearAllCaches<CR>
+

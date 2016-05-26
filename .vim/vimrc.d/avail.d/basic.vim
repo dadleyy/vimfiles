@@ -57,3 +57,9 @@ Plugin 'vim-colorschemes'
 Plugin 'vim-javascript'
 Plugin 'vim-jsx'
 Plugin 'vim-markdown'
+Plugin 'Alduin'
+Plugin 'colorstepper'
+
+" fix backspace
+set backspace=indent,eol,start
+
