@@ -1,1 +1,1 @@
-colorscheme alduin
+colorscheme BlackSea

@@ -3,7 +3,7 @@ noremap <leader>w :Vexplore<CR>
 noremap <leader>q :Explore<CR>
 noremap <leader>Q <c-w><c-n>:Explore<CR>
 
-" resource vimrc (and all configs)
+" re-source vimrc (and all configs)
 noremap <leader>sv :so $MYVIMRC<CR>
 
 " make split big
@@ -37,4 +37,3 @@ nmap <leader>z <Plug>ColorstepPrev
 " fuzzy file finding
 noremap <Leader>t :CtrlP<CR>
 noremap <Leader>tf :CtrlPClearAllCaches<CR>
-

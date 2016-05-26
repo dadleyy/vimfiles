@@ -1,12 +1,30 @@
-" line numbers, duh
-set nu
-
 " be improved
 set nocompatible 
 filetype off 
+
+" prep vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+
+" load plugins
+Plugin 'ctrlp.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'juanedi/predawn.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'AlessandroYorba/Alduin'
+
+" turn filetype back on
+call vundle#end()
+filetype plugin indent on 
+
+" line numbers
+set nu
+
+" color scheme
+colorscheme alduin
 
 " spaces all day
 set expandtab
@@ -37,29 +55,14 @@ set smartindent
 " screw swap fils
 set noswapfile
 
-filetype indent plugin on
+" close suggestion when moving forward
 autocmd CompleteDone * pclose
-set noerrorbells visualbell t_vb=
-au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
-Plugin 'anderson.vim'
-Plugin 'birds-of-paradise.vim'
-Plugin 'colorsbox'
-Plugin 'ctrlp.vim'
-Plugin 'jade.vim'
-Plugin 'mustache.vim'
-Plugin 'pathogen'
-Plugin 'Revolution.vim'
-Plugin 'sourcerer.vim'
-Plugin 'vim-cjsx'
-Plugin 'vim-coffee-script'
-Plugin 'vim-colorschemes'
-Plugin 'vim-javascript'
-Plugin 'vim-jsx'
-Plugin 'vim-markdown'
-Plugin 'Alduin'
-Plugin 'colorstepper'
+" turn off annoyances
+set noerrorbells visualbell t_vb=
+
+" use ruby syntax highlighting in jbuilder files
+au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 " fix backspace
 set backspace=indent,eol,start
-
