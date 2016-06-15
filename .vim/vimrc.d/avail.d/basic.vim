@@ -7,6 +7,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " load plugins
+Plugin 'Vundle.vim'
 Plugin 'ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jpo/vim-railscasts-theme'
@@ -15,6 +16,9 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'AlessandroYorba/Alduin'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jacoborus/tender.vim'
+Plugin 'nanotech/jellybeans.vim'
 
 " turn filetype back on
 call vundle#end()
@@ -54,6 +58,10 @@ set smartindent
 
 " screw swap fils
 set noswapfile
+
+" remove stupic scrollbars
+set guioptions-=r
+set guioptions-=L
 
 " close suggestion when moving forward
 autocmd CompleteDone * pclose
