@@ -12,6 +12,7 @@ Plugin 'ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'AlessandroYorba/Alduin'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'vim-scripts/ReplaceWithRegister'
 
 " turn filetype back on
 call vundle#end()
