@@ -10,15 +10,8 @@ call vundle#begin()
 Plugin 'Vundle.vim'
 Plugin 'ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'jpo/vim-railscasts-theme'
-Plugin 'juanedi/predawn.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'AlessandroYorba/Alduin'
-Plugin 'pangloss/vim-javascript'
-Plugin 'jacoborus/tender.vim'
-Plugin 'nanotech/jellybeans.vim'
+Plugin 'sheerun/vim-polyglot'
 
 " turn filetype back on
 call vundle#end()
