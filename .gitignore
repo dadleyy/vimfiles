@@ -1,6 +1,6 @@
 .netrwhist
 /.vim/bundle/*
-/.vim/**/conf.d
+/.vim/enabled.d
 /.vim/autoload
 /.vim/.VimballRecord
 /.vim/doc
