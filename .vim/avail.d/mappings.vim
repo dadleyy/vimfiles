@@ -3,12 +3,11 @@ noremap <leader>w :Vexplore<CR>
 noremap <leader>q :Explore<CR>
 noremap <leader>Q <c-w><c-n>:Explore<CR>
 
-" re-source vimrc (and all configs)
-noremap <leader>sv :so $MYVIMRC<CR>
+" easy replace with register
+vnoremap <space>p "_dP<CR>
 
 " make split big
 noremap <leader>bd :bd<CR>
-vnoremap <leader>pp "_dP<CR>
 
 " compilation
 noremap <leader>ccm :!make<CR>
