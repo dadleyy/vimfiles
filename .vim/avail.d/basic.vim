@@ -6,6 +6,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+let g:polyglot_disabled=['python']
+
 " load plugins
 Plugin 'Vundle.vim'
 Plugin 'ctrlp.vim'
@@ -16,7 +18,6 @@ Plugin 'vim-scripts/ReplaceWithRegister'
 
 " turn filetype back on
 call vundle#end()
-filetype plugin indent on 
 
 " line numbers
 set nu
@@ -68,3 +69,5 @@ au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 " fix backspace
 set backspace=indent,eol,start
+
+filetype plugin indent on 
