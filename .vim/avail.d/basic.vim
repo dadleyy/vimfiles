@@ -71,3 +71,8 @@ au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 set backspace=indent,eol,start
 
 filetype plugin indent on 
+
+" github.com column width
+set colorcolumn=120
+highlight ColorColumn guibg=#141414
+highlight ColorColumn ctermbg=Black
