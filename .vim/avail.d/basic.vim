@@ -11,10 +11,10 @@ let g:polyglot_disabled=['python']
 " load plugins
 Plugin 'Vundle.vim'
 Plugin 'ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'AlessandroYorba/Alduin'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'vim-scripts/ReplaceWithRegister'
+Plugin 'Valloric/YouCompleteMe'
 
 " turn filetype back on
 call vundle#end()
