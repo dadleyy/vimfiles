@@ -1,10 +1,10 @@
 # vim files
 
-total work in progress
+my vim setup.
 
 ## setup
 
-clone into something link `~/src` directory and then use symlinks to:
+clone into something like `~/src` directory and then use symlinks to:
 
 ```
 $ ln -s ~/src/vimfiles/.vimrc ~/
