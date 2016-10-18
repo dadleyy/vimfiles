@@ -1,3 +1,10 @@
+" macvim
+let macvim_skip_colorscheme=1
+
+" airline
+let g:airline_theme='deep_space'
+let g:airline_powerline_fonts=1
+
 " netrw
 let g:netrw_dirhistmax = 0
 let g:netrw_sort_by = 'name'

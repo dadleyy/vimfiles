@@ -6,10 +6,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-let g:polyglot_disabled=['python']
-
 " load plugins
-Plugin 'Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " tools
 Plugin 'ctrlp.vim'
@@ -23,10 +21,12 @@ Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'fatih/vim-go'
 Plugin 'mxw/vim-jsx'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " themes
 Plugin 'AlessandroYorba/Alduin'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tyrannicaltoucan/vim-deep-space'
 
 " turn filetype back on
 call vundle#end()
@@ -35,7 +35,8 @@ call vundle#end()
 set nu
 
 " color scheme
-colorscheme alduin
+set background=dark
+colorscheme deep-space
 
 " spaces all day
 set expandtab
@@ -66,13 +67,15 @@ set smartindent
 " screw swap fils
 set noswapfile
 
-" remove stupic scrollbars
+" bye scrollbars
 set guioptions-=r
 set guioptions-=L
 
+" gui font
+set guifont=Roboto\ Mono\ Light\ for\ Powerline
+
 " close suggestion when moving forward
 autocmd CompleteDone * pclose
-autocmd VimEnter * AirlineTheme raven
 
 " turn off annoyances
 set noerrorbells visualbell t_vb=
@@ -89,5 +92,9 @@ filetype plugin indent on
 set colorcolumn=120
 highlight ColorColumn guibg=#141414
 highlight ColorColumn ctermbg=Black
+
+" show status line on all splits
 set ls=2
+
+" no auto complete preview windows
 set completeopt-=preview
