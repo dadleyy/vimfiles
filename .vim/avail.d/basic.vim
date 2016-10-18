@@ -26,6 +26,7 @@ Plugin 'kchmck/vim-coffee-script'
 
 " themes
 Plugin 'AlessandroYorba/Alduin'
+Plugin 'vim-airline/vim-airline-themes'
 
 " turn filetype back on
 call vundle#end()
@@ -71,6 +72,7 @@ set guioptions-=L
 
 " close suggestion when moving forward
 autocmd CompleteDone * pclose
+autocmd VimEnter * AirlineTheme raven
 
 " turn off annoyances
 set noerrorbells visualbell t_vb=
