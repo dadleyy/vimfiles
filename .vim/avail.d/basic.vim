@@ -15,6 +15,8 @@ Plugin 'AlessandroYorba/Alduin'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-airline/vim-airline'
+Plugin 'airblade/vim-gitgutter'
 
 " turn filetype back on
 call vundle#end()
@@ -76,3 +78,4 @@ filetype plugin indent on
 set colorcolumn=120
 highlight ColorColumn guibg=#141414
 highlight ColorColumn ctermbg=Black
+set ls=2
