@@ -10,7 +10,7 @@ let g:ycm_confirm_extra_conf=0
 let g:ycm_open_loclist_on_ycm_diags=0
 
 " gitgutter
-let g:gitgutter_signs = 0
+let g:gitgutter_signs=0
 
 " ctrlp
 let g:ctrlp_open_new_file='h'

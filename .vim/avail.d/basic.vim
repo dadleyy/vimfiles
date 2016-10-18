@@ -10,13 +10,22 @@ let g:polyglot_disabled=['python']
 
 " load plugins
 Plugin 'Vundle.vim'
+
+" tools
 Plugin 'ctrlp.vim'
-Plugin 'AlessandroYorba/Alduin'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'vim-scripts/ReplaceWithRegister'
+Plugin 'tpope/vim-fugitive'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-scripts/ReplaceWithRegister'
+
+" languages
+Plugin 'fatih/vim-go'
+Plugin 'mxw/vim-jsx'
+Plugin 'kchmck/vim-coffee-script'
+
+" themes
+Plugin 'AlessandroYorba/Alduin'
 
 " turn filetype back on
 call vundle#end()
@@ -79,3 +88,4 @@ set colorcolumn=120
 highlight ColorColumn guibg=#141414
 highlight ColorColumn ctermbg=Black
 set ls=2
+set completeopt-=preview
