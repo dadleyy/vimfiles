@@ -72,7 +72,7 @@ set guioptions-=r
 set guioptions-=L
 
 " gui font
-set guifont=Roboto\ Mono\ Light\ for\ Powerline
+set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline
 
 " close suggestion when moving forward
 autocmd CompleteDone * pclose
