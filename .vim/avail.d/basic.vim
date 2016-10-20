@@ -20,8 +20,10 @@ Plugin 'vim-scripts/ReplaceWithRegister'
 " languages
 Plugin 'fatih/vim-go'
 Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'digitaltoad/vim-pug'
 
 " themes
 Plugin 'AlessandroYorba/Alduin'
