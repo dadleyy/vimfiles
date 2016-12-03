@@ -24,6 +24,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'digitaltoad/vim-pug'
+Plugin 'dadleyy/typescript-vim'
 
 " themes
 Plugin 'AlessandroYorba/Alduin'
