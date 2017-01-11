@@ -30,6 +30,7 @@ Plugin 'dadleyy/typescript-vim'
 Plugin 'AlessandroYorba/Alduin'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tyrannicaltoucan/vim-deep-space'
+Plugin 'morhetz/gruvbox'
 
 " turn filetype back on
 call vundle#end()
@@ -38,8 +39,8 @@ call vundle#end()
 set nu
 
 " color scheme
+colorscheme gruvbox
 set background=dark
-colorscheme deep-space
 
 " spaces all day
 set expandtab
