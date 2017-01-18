@@ -20,17 +20,18 @@ Plugin 'vim-scripts/ReplaceWithRegister'
 " languages
 Plugin 'fatih/vim-go'
 Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
+Plugin 'dadleyy/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'dadleyy/typescript-vim'
+Plugin 'gabrielelana/vim-markdown'
 
 " themes
 Plugin 'AlessandroYorba/Alduin'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tyrannicaltoucan/vim-deep-space'
-Plugin 'morhetz/gruvbox'
+Plugin 'dadleyy/gruvbox'
+Plugin 'vim-airline/vim-airline-themes'
 
 " turn filetype back on
 call vundle#end()

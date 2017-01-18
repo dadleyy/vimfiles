@@ -1,3 +1,12 @@
+" syntax help
+nmap <leader>sp :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
 " open netrw
 noremap <leader>w :Vexplore<CR>
 noremap <leader>q :Explore<CR>
