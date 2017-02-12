@@ -7,6 +7,9 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+" ctags
+noremap <leader>[ <C-]>
+
 " open netrw
 noremap <leader>w :Vexplore<CR>
 noremap <leader>q :Explore<CR>
