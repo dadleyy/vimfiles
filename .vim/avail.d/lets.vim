@@ -6,11 +6,7 @@ let g:airline_theme='deep_space'
 let g:airline_powerline_fonts=1
 
 " netrw
-let g:netrw_dirhistmax = 0
 let g:netrw_sort_by = 'name'
-let g:netrw_list_hide = '.git,.sass-cache,node_modules,bower_components,.*\.o'
-let g:netrw_liststyle=4
-let g:netrw_altv=1
 
 " you complete me
 let g:ycm_confirm_extra_conf=0

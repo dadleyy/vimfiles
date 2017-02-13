@@ -48,8 +48,6 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 
-" highlighting
-set nohlsearch
 syntax enable
 
 " utf-8
@@ -77,7 +75,7 @@ set guioptions-=r
 set guioptions-=L
 
 " gui font
-set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline
+set guifont=Inconsolata\ for\ Powerline:h14
 
 " close suggestion when moving forward
 autocmd CompleteDone * pclose
@@ -100,6 +98,9 @@ highlight ColorColumn ctermbg=Black
 
 " show status line on all splits
 set ls=2
+
+" i like search highlight now
+set hlsearch
 
 " no auto complete preview windows
 set completeopt-=preview
