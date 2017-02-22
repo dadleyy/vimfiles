@@ -31,6 +31,7 @@ noremap <Right> <NOP>
 nmap <leader>z <Plug>ColorstepPrev
 
 " fuzzy file finding
-noremap <Leader>t :CtrlP<CR>
+noremap <Leader>tt :CtrlP<CR>
 noremap <Leader>tr :CtrlPTag<CR>
+noremap <Leader>tb :TagbarToggle<CR>
 noremap <Leader>tf :CtrlPClearAllCaches<CR>
