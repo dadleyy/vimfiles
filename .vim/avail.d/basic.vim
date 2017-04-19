@@ -17,14 +17,16 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 
 " languages
 Plugin 'fatih/vim-go'
+Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'dadleyy/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'digitaltoad/vim-pug'
 Plugin 'dadleyy/typescript-vim'
 Plugin 'gabrielelana/vim-markdown'
 
@@ -102,6 +104,9 @@ set ls=2
 
 " i like search highlight now
 set hlsearch
+
+set cursorline!
+set cursorcolumn!
 
 " no auto complete preview windows
 set completeopt-=preview
