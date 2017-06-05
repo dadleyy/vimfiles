@@ -7,6 +7,7 @@ let g:airline_powerline_fonts=1
 
 " netrw
 let g:netrw_sort_by = 'name'
+let g:netrw_localrmdir='rm -r'
 
 " you complete me
 let g:ycm_confirm_extra_conf=0
