@@ -16,10 +16,11 @@ noremap <leader>cs :noh<CR>
 " open netrw
 noremap <leader>w :Vexplore<CR>
 noremap <leader>q :Explore<CR>
-noremap <leader>Q <c-w><c-n>:Explore<CR>
 
-" easy replace with register
-vnoremap <space>p "_dP<CR>
+" delete + paste w/o register
+noremap <space>p "_dP
+" delete w/o register
+noremap <space>d "_dd
 
 " train muscles
 noremap <Up> <NOP>

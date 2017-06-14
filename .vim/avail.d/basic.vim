@@ -13,7 +13,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'majutsushi/tagbar'
@@ -31,13 +30,8 @@ Plugin 'dadleyy/typescript-vim'
 Plugin 'gabrielelana/vim-markdown'
 
 " themes
-Plugin 'AlessandroYorba/Alduin'
-Plugin 'tyrannicaltoucan/vim-deep-space'
 Plugin 'dadleyy/gruvbox'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'exitface/synthwave.vim'
-Plugin 'zakj/vim-mourning'
-Plugin 'nightsense/seabird'
 
 " turn filetype back on
 call vundle#end()
