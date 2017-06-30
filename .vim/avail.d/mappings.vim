@@ -33,6 +33,15 @@ nmap <leader>z <Plug>ColorstepPrev
 
 " fuzzy file finding
 noremap <Leader>t :CtrlP<CR>
-noremap <Leader>y :CtrlPTag<CR>
-noremap <Leader>u :TagbarToggle<CR>
 noremap <Leader>tf :CtrlPClearAllCaches<CR>
+
+" fugitive git bindings
+noremap <Leader>gb :Gblame<CR>
+noremap <Leader>ga :Gwrite<CR>
+
+" folds
+noremap <Leader>fe za
+
+" ctags related
+noremap <Leader>u :TagbarToggle<CR>
+noremap <Leader>y :CtrlPTag<CR>

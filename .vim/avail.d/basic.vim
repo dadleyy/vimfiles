@@ -32,6 +32,7 @@ Plugin 'gabrielelana/vim-markdown'
 " themes
 Plugin 'dadleyy/gruvbox'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'carakan/new-railscasts-theme'
 
 " turn filetype back on
 call vundle#end()
