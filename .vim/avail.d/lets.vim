@@ -5,6 +5,22 @@ let macvim_skip_colorscheme=1
 " let g:airline_theme='gruvbox'
 let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts=1
+let g:airline_mode_map = {
+    \ '__' : '-',
+    \ 'n'  : 'N',
+    \ 'i'  : 'I',
+    \ 'R'  : 'R',
+    \ 'c'  : 'C',
+    \ 'v'  : 'V',
+    \ 'V'  : 'V',
+    \ '' : 'V',
+    \ 's'  : 'S',
+    \ 'S'  : 'S',
+    \ '' : 'S',
+    \ }
+
+let g:airline_section_x = ''
+let g:airline_section_y = ''
 
 " netrw
 let g:netrw_sort_by = 'name'
