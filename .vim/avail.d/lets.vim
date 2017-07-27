@@ -2,7 +2,8 @@
 let macvim_skip_colorscheme=1
 
 " airline
-let g:airline_theme='gruvbox'
+" let g:airline_theme='gruvbox'
+let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts=1
 
 " netrw

@@ -33,6 +33,8 @@ Plugin 'gabrielelana/vim-markdown'
 Plugin 'dadleyy/gruvbox'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'carakan/new-railscasts-theme'
+Plugin 'hzchirs/vim-material'
+Plugin 'beigebrucewayne/Turtles'
 
 " turn filetype back on
 call vundle#end()
@@ -41,7 +43,7 @@ call vundle#end()
 set nu
 
 " color scheme
-colorscheme gruvbox
+colorscheme turtles
 set background=dark
 
 " spaces all day
