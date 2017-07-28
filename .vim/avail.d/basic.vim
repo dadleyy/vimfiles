@@ -43,7 +43,7 @@ call vundle#end()
 set nu
 
 " color scheme
-colorscheme turtles
+colorscheme gruvbox
 set background=dark
 
 " spaces all day
