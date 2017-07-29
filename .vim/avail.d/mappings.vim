@@ -13,9 +13,9 @@ noremap <leader>[ <C-]>
 " remove highlight
 noremap <leader>cs :noh<CR>
 
-" open netrw
+" splits
 noremap <leader>w :Vexplore<CR>
-noremap <leader>q :Explore<CR>
+noremap <leader>q :split<CR>:Explore<CR>
 
 " delete + paste w/o register
 noremap <space>p "_dP
@@ -41,6 +41,9 @@ noremap <Leader>ga :Gwrite<CR>
 
 " folds
 noremap <Leader>fe za
+
+" bring next line up
+noremap <Leader>j Jc
 
 " ctags related
 noremap <Leader>u :TagbarToggle<CR>

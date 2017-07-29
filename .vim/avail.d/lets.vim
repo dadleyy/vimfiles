@@ -1,5 +1,6 @@
 " macvim
 let macvim_skip_colorscheme=1
+let mapleader=" "
 
 " airline
 let g:airline_theme='gruvbox'
