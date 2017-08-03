@@ -14,8 +14,9 @@ noremap <leader>[ <C-]>
 noremap <leader>cs :noh<CR>
 
 " splits
-noremap <leader>w :Vexplore<CR>
 noremap <leader>q :split<CR>:Explore<CR>
+noremap <leader>w :Vexplore<CR>
+noremap <leader>e :Explore<CR>
 
 " delete + paste w/o register
 noremap <space>p "_dP

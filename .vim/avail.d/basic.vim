@@ -20,6 +20,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 
 " languages
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'fatih/vim-go'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'mxw/vim-jsx'
@@ -32,9 +33,6 @@ Plugin 'gabrielelana/vim-markdown'
 " themes
 Plugin 'dadleyy/gruvbox'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'carakan/new-railscasts-theme'
-Plugin 'hzchirs/vim-material'
-Plugin 'beigebrucewayne/Turtles'
 
 " turn filetype back on
 call vundle#end()
