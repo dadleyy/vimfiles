@@ -37,8 +37,9 @@ noremap <Leader>t :CtrlP<CR>
 noremap <Leader>tf :CtrlPClearAllCaches<CR>
 
 " fugitive git bindings
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>lp :Gblame<CR>
+noremap <Leader>le :GEdit<CR>
+noremap <Leader>la :Gwrite<CR>
 
 " folds
 noremap <Leader>fe za
