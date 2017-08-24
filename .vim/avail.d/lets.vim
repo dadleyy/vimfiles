@@ -22,6 +22,12 @@ let g:airline_mode_map = {
 let g:airline_section_x = ''
 let g:airline_section_y = ''
 
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_types = 1
+
 " netrw
 let g:netrw_sort_by = 'name'
 let g:netrw_localrmdir='rm -r'

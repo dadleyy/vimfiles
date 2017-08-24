@@ -78,14 +78,8 @@ set guioptions-=L
 " gui font
 set guifont=Inconsolata\ for\ Powerline:h14
 
-" close suggestion when moving forward
-autocmd CompleteDone * pclose
-
 " turn off annoyances
 set noerrorbells visualbell t_vb=
-
-" use ruby syntax highlighting in jbuilder files
-au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 " fix backspace
 set backspace=indent,eol,start
