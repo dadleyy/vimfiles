@@ -21,7 +21,6 @@ Plugin 'tpope/vim-repeat'
 
 " languages
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'Blackrush/vim-gocode'
 Plugin 'fatih/vim-go'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'mxw/vim-jsx'

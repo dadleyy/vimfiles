@@ -1,5 +1,5 @@
 " syntax help
-nmap <leader>sp :call <SID>SynStack()<CR>
+nmap <leader>sp :call <SID>SynStack()<cr>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
@@ -9,15 +9,15 @@ endfunc
 
 " ctags
 noremap <leader>[ <C-]>
-noremap <leader>] :pop<CR>
+noremap <leader>] :pop<cr>
 
 " remove highlight
-noremap <leader>cs :noh<CR>
+noremap <leader>cs :noh<cr>
 
 " splits
-noremap <leader>q :split<CR>:Explore<CR>
-noremap <leader>w :Vexplore<CR>
-noremap <leader>e :Explore<CR>
+noremap <leader>q :split<cr>:Explore<cr>
+noremap <leader>w :Vexplore<cr>
+noremap <leader>e :Explore<cr>
 
 " delete + paste w/o register
 noremap <space>p "_dP
@@ -34,20 +34,24 @@ noremap <Right> <NOP>
 nmap <leader>z <Plug>ColorstepPrev
 
 " fuzzy file finding
-noremap <Leader>t :CtrlP<CR>
-noremap <Leader>tf :CtrlPClearAllCaches<CR>
+noremap <leader>t :CtrlP<cr>
+noremap <leader>tf :CtrlPClearAllCaches<cr>
+
+noremap <leader>gl :GoLint<cr>
+noremap <leader>gv :GoVet<cr>
+noremap <leader>gi :GoInfo<cr>
 
 " fugitive git bindings
-noremap <Leader>lp :Gblame<CR>
-noremap <Leader>le :GEdit<CR>
-noremap <Leader>la :Gwrite<CR>
+noremap <leader>lp :Gblame<cr>
+noremap <leader>le :GEdit<cr>
+noremap <leader>la :Gwrite<cr>
 
 " folds
-noremap <Leader>fe za
+noremap <leader>fe za
 
 " bring next line up
-noremap <Leader>j Jc
+noremap <leader>j Jc
 
 " ctags related
-noremap <Leader>u :TagbarToggle<CR>
-noremap <Leader>y :CtrlPTag<CR>
+noremap <leader>u :TagbarToggle<cr>
+noremap <leader>y :CtrlPTag<cr>
