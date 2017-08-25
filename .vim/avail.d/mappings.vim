@@ -9,6 +9,7 @@ endfunc
 
 " ctags
 noremap <leader>[ <C-]>
+noremap <leader>] :pop<CR>
 
 " remove highlight
 noremap <leader>cs :noh<CR>

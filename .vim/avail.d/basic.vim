@@ -21,6 +21,7 @@ Plugin 'tpope/vim-repeat'
 
 " languages
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'Blackrush/vim-gocode'
 Plugin 'fatih/vim-go'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'mxw/vim-jsx'
@@ -97,8 +98,8 @@ set ls=2
 " i like search highlight now
 set hlsearch
 
-set cursorline!
-set cursorcolumn!
-
 " no auto complete preview windows
 set completeopt-=preview
+
+set cursorcolumn!
+set nocursorline!

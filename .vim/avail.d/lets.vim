@@ -27,6 +27,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_types = 1
+let g:go_highlight_trailing_whitespace_error = 0
 
 " netrw
 let g:netrw_sort_by = 'name'
