@@ -40,6 +40,8 @@ noremap <leader>tf :CtrlPClearAllCaches<cr>
 noremap <leader>gl :GoLint<cr>
 noremap <leader>gv :GoVet<cr>
 noremap <leader>gi :GoInfo<cr>
+noremap <leader>gc :GoCoverageToggle<cr>
+noremap <leader>ga :GoAlternate<cr>
 
 " fugitive git bindings
 noremap <leader>lp :Gblame<cr>
