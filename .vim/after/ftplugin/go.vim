@@ -2,5 +2,5 @@ setlocal noexpandtab
 setlocal shiftwidth=2
 setlocal tabstop=2
 
-noremap <leader>[ :GoDef<cr>
-noremap <leader>] :GoDefPop<cr>
+noremap <leader><pagedown> :GoDef<cr>
+noremap <leader><pageup> :GoDefPop<cr>

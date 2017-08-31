@@ -11,6 +11,8 @@ endfunc
 noremap <leader>[ <C-]>
 noremap <leader>] :pop<cr>
 
+noremap <leader>8 *
+
 " remove highlight
 noremap <leader>cs :noh<cr>
 
@@ -23,12 +25,6 @@ noremap <leader>e :Explore<cr>
 noremap <space>p "_dP
 " delete w/o register
 noremap <space>d "_dd
-
-" train muscles
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
 
 " change colors
 nmap <leader>z <Plug>ColorstepPrev
@@ -57,3 +53,9 @@ noremap <leader>j Jc
 " ctags related
 noremap <leader>u :TagbarToggle<cr>
 noremap <leader>y :CtrlPTag<cr>
+
+" train muscles
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
