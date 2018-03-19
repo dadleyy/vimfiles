@@ -28,7 +28,7 @@ Plugin 'dadleyy/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'dadleyy/typescript-vim'
-Plugin 'gabrielelana/vim-markdown'
+Plugin 'rust-lang/rust.vim'
 
 " themes
 Plugin 'dadleyy/gruvbox'
