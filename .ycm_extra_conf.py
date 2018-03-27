@@ -1,2 +1,9 @@
+import sys
+import os.path
+
+
 def FlagsForFile(filename, **kwargs):
-	pass
+	flags = ['-x', 'c++', '-Wall', '-Wextra', '-Werror']
+	return {
+		'flags': flags
+	}
