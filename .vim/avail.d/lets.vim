@@ -1,6 +1,9 @@
 " macvim
-let macvim_skip_colorscheme=1
-let mapleader=" "
+let macvim_skip_colorscheme = 1
+let mapleader = " "
+
+let g:ycm_rust_src_path = "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
+let g:rustfmt_autosave = 1
 
 " airline
 let g:airline_theme='gruvbox'
