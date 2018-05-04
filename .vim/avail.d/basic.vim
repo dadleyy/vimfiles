@@ -97,6 +97,9 @@ set ls=2
 " i like search highlight now
 set hlsearch
 
+" https://www.reddit.com/r/vim/comments/8ggdqn/undocumented_tips_make_your_vim_1020x_times_faster
+set re=1
+
 " no auto complete preview windows
 set completeopt-=preview
 

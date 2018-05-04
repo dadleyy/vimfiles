@@ -16,6 +16,9 @@ noremap <leader>8 *
 " remove highlight
 noremap <leader>cs :noh<cr>
 
+" rust
+noremap <leader>rr :RustRun<cr>
+
 " splits
 noremap <leader>q :split<cr>:Explore<cr>
 noremap <leader>w :Vexplore<cr>
