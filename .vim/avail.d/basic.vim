@@ -18,6 +18,7 @@ Plugin 'vim-scripts/ReplaceWithRegister'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'AndrewRadev/splitjoin.vim'
 
 " languages
 Plugin 'vim-ruby/vim-ruby'
