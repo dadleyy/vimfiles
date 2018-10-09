@@ -10,6 +10,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " tools
+Plugin 'Shougo/vimproc.vim'
 Plugin 'ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Valloric/YouCompleteMe'
@@ -19,6 +20,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'eugen0329/vim-esearch'
 
 " languages
 Plugin 'vim-ruby/vim-ruby'
@@ -33,6 +35,9 @@ Plugin 'rust-lang/rust.vim'
 " themes
 Plugin 'dadleyy/gruvbox'
 Plugin 'vim-airline/vim-airline-themes'
+
+" formatting
+Plugin 'w0rp/ale'
 
 " turn filetype back on
 call vundle#end()
