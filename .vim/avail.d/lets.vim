@@ -25,8 +25,7 @@ let g:ale_linters_explicit=1
 let g:ale_completion_enabled=1
 let g:ale_set_signs=0
 let g:ale_completion_delay=50
-" let g:ale_ruby_solargraph_host='0.0.0.0'
-" let g:ale_ruby_solargraph_port = '7658'
+let g:ale_completion_max_suggestions=10
 
 " airline
 let g:airline_theme='gruvbox'
