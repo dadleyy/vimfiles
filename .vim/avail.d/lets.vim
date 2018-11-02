@@ -7,10 +7,22 @@ let g:esearch={ 'adapter': 'git', 'out': 'qflist', 'backend': 'vim8' }
 
 let g:rustfmt_autosave=1
 
-" prettier
-let g:ale_fixers={'javascript': ['eslint']}
+" ale
+let g:ale_fixers={
+      \ 'javascript': ['eslint'],
+      \ 'typescript': ['eslint'],
+      \ 'go': ['gofmt']
+      \}
+let g:ale_linters = {
+      \ 'javascript': ['eslint', 'tsserver'],
+      \ 'typescript': ['eslint', 'tsserver'],
+      \ 'go': ['golangserver', 'gobuild'],
+      \}
 let g:ale_fix_on_save=1
 let g:ale_linters_explicit=1
+let g:ale_completion_enabled=1
+let g:ale_set_signs=0
+let g:ale_completion_delay=50
 
 " airline
 let g:airline_theme='gruvbox'
@@ -30,7 +42,7 @@ let g:airline_mode_map={
     \ }
 
 let g:airline_section_x=''
-let g:airline_section_y='%{go#statusline#Show()}'
+" let g:airline_section_y='%{go#statusline#Show()}'
 
 let g:go_highlight_functions=1
 let g:go_highlight_methods=1
@@ -42,14 +54,6 @@ let g:go_highlight_trailing_whitespace_error=0
 " netrw
 let g:netrw_sort_by='name'
 let g:netrw_localrmdir='rm -r'
-
-" you complete me
-let g:ycm_confirm_extra_conf=0
-let g:ycm_rust_src_path="~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
-let g:ycm_open_loclist_on_ycm_diags=0
-let g:ycm_collect_identifiers_from_tags_files=1
-let g:ycm_seed_identifiers_with_syntax=1
-let g:ycm_show_diagnostics_ui=0
 
 " gitgutter
 let g:gitgutter_signs=0

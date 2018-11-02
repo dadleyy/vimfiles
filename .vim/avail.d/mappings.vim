@@ -66,3 +66,6 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+" Ale autocomplete stuffs
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
