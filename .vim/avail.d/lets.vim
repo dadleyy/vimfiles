@@ -11,18 +11,22 @@ let g:rustfmt_autosave=1
 let g:ale_fixers={
       \ 'javascript': ['eslint'],
       \ 'typescript': ['eslint'],
-      \ 'go': ['gofmt']
+      \ 'go': ['gofmt'],
+      \ 'ruby': ['rubocop']
       \}
 let g:ale_linters = {
       \ 'javascript': ['eslint', 'tsserver'],
       \ 'typescript': ['eslint', 'tsserver'],
       \ 'go': ['golangserver', 'gobuild'],
+      \ 'ruby': ['rubocop', 'solargraph']
       \}
 let g:ale_fix_on_save=1
 let g:ale_linters_explicit=1
 let g:ale_completion_enabled=1
 let g:ale_set_signs=0
 let g:ale_completion_delay=50
+" let g:ale_ruby_solargraph_host='0.0.0.0'
+" let g:ale_ruby_solargraph_port = '7658'
 
 " airline
 let g:airline_theme='gruvbox'
