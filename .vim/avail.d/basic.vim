@@ -9,14 +9,15 @@ call vundle#begin()
 " load plugins
 Plugin 'VundleVim/Vundle.vim'
 
-" tools
-Plugin 'Shougo/vimproc.vim'
-Plugin 'ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
+" ui
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-scripts/ReplaceWithRegister'
+Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
+Plugin 'ctrlp.vim'
+
+" tools
+Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'AndrewRadev/splitjoin.vim'
@@ -25,10 +26,8 @@ Plugin 'eugen0329/vim-esearch'
 " languages
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'fatih/vim-go'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'dadleyy/vim-javascript'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'dadleyy/vim-javascript'
 Plugin 'dadleyy/typescript-vim'
 Plugin 'rust-lang/rust.vim'
 
