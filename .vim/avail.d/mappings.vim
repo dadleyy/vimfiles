@@ -1,7 +1,3 @@
-" esearch things
-call esearch#map('<leader>ff', 'esearch')
-noremap <leader>cc :cclose<CR>
-
 " syntax help
 nmap <leader>sp :call <SID>SynStack()<CR>
 function! <SID>SynStack()
@@ -15,13 +11,8 @@ endfunc
 noremap <leader>[ <C-]>
 noremap <leader>] :pop<CR>
 
-noremap <leader>8 *
-
 " remove highlight
 noremap <leader>cs :noh<cr>
-
-" rust
-noremap <leader>rr :RustRun<CR>
 
 " splits
 noremap <leader>q :split<CR>:Explore<CR>
@@ -39,12 +30,6 @@ nmap <leader>z <Plug>ColorstepPrev
 " fuzzy file finding
 noremap <leader>t :CtrlP<CR>
 noremap <leader>tf :CtrlPClearAllCaches<CR>
-
-noremap <leader>gl :GoLint<CR>
-noremap <leader>gv :GoVet<CR>
-noremap <leader>gi :GoInfo<CR>
-noremap <leader>gc :GoCoverageToggle<CR>
-noremap <leader>ga :GoAlternate<CR>
 
 " fugitive git bindings
 noremap <leader>lp :Gblame<CR>
@@ -66,6 +51,3 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
-" Ale autocomplete stuffs
-inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"

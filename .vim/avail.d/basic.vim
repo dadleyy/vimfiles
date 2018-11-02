@@ -11,23 +11,25 @@ Plugin 'VundleVim/Vundle.vim'
 
 " ui
 Plugin 'w0rp/ale'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlp.vim'
 
 " tools
+Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'eugen0329/vim-esearch'
 
 " languages
-Plugin 'vim-ruby/vim-ruby'
+" Plugin 'vim-ruby/vim-ruby'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'dadleyy/vim-javascript'
-Plugin 'dadleyy/typescript-vim'
-Plugin 'rust-lang/rust.vim'
+" Plugin 'dadleyy/vim-javascript'
+" Plugin 'dadleyy/typescript-vim'
+" Plugin 'rust-lang/rust.vim'
 
 " themes
 Plugin 'dadleyy/gruvbox'
@@ -106,5 +108,3 @@ set completeopt-=preview
 
 set cursorcolumn!
 set nocursorline!
-
-set completeopt=menu,menuone,preview,noselect,noinsert
