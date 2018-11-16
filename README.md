@@ -1,4 +1,4 @@
-## vim files
+# vim files
 
 my vim setup.
 
