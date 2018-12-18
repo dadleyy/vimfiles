@@ -102,4 +102,5 @@ set completeopt-=preview
 
 set cursorcolumn!
 set nocursorline!
+
 set noballooneval
