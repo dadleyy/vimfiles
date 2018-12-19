@@ -1,7 +1,6 @@
 " macvim
 let macvim_skip_colorscheme=1
 let mapleader=" "
-let g:netrw_nobeval=1
 
 " you complete me
 let g:ycm_confirm_extra_conf=0
@@ -41,6 +40,8 @@ let g:airline_section_x=''
 " netrw
 let g:netrw_sort_by='name'
 let g:netrw_localrmdir='rm -r'
+let g:netrw_nobeval=1
+let g:netrw_keepdir=0
 
 " gitgutter
 let g:gitgutter_signs=0
