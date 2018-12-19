@@ -40,6 +40,8 @@ let g:airline_section_x=''
 " netrw
 let g:netrw_sort_by='name'
 let g:netrw_localrmdir='rm -r'
+let g:netrw_nobeval=1
+let g:netrw_keepdir=0
 
 " gitgutter
 let g:gitgutter_signs=0
