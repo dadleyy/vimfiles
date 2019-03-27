@@ -33,8 +33,13 @@ noremap <leader>tf :CtrlPClearAllCaches<CR>
 
 " fugitive git bindings
 noremap <leader>lp :Gblame<CR>
-noremap <leader>le :GEdit<CR>
+noremap <leader>le :Gedit<CR>
 noremap <leader>la :Gwrite<CR>
+noremap <leader>ll :Glog<CR>
+
+noremap <leader>gt :GoCoverage<CR>
+noremap <leader>gc :GoCoverageClear<CR>
+
 
 " folds
 noremap <leader>fe za
@@ -43,7 +48,6 @@ noremap <leader>fe za
 noremap <leader>j Jc
 
 " ctags related
-noremap <leader>u :TagbarToggle<CR>
 noremap <leader>y :CtrlPTag<CR>
 
 " train muscles

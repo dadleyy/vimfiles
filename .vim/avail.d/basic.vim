@@ -13,17 +13,19 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'ctrlp.vim'
 
 " tools
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'eugen0329/vim-esearch'
+" Plugin 'eugen0329/vim-esearch'
 
 " languages
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'rust-lang/rust.vim'
+Plugin 'fatih/vim-go'
 
 " themes
 Plugin 'dadleyy/gruvbox'
