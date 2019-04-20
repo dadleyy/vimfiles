@@ -1,9 +1,12 @@
 export PATH="${PATH}:/usr/local/go/bin"
+export PATH="${PATH}:/Applications/MacVim.app/Contents/bin"
+export PATH="${PATH}:/usr/local/node/bin"
 set -o vi
 export EDITOR="vim"
 
 function git_ps1() {
-  if [ ! -d "./.git" ]
+  local git_root=$(git rev-parse --show-toplevel --quiet 2> /dev/null)
+  if [ "" == "${git_root}" ]
   then
     echo -e "\033[0;92m> \033[0m"
     return
@@ -15,3 +18,5 @@ function git_ps1() {
 }
 
 export PS1="\$(git_ps1)"
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
