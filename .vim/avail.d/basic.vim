@@ -20,12 +20,12 @@ Plugin 'ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'AndrewRadev/splitjoin.vim'
-" Plugin 'eugen0329/vim-esearch'
 
 " languages
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'rust-lang/rust.vim'
 Plugin 'fatih/vim-go'
+Plugin 'leafgarland/typescript-vim'
 
 " themes
 Plugin 'dadleyy/gruvbox'
