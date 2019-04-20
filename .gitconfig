@@ -1,0 +1,6 @@
+[alias]
+	co = checkout
+	aa = add --all
+	s = status
+	c = commit
+	d = diff
