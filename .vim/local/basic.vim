@@ -2,39 +2,30 @@
 set nocompatible 
 filetype off 
 
-" prep vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" load plugins
-Plugin 'VundleVim/Vundle.vim'
-
-" ui
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-airline/vim-airline'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
-Plugin 'ctrlp.vim'
-
-" tools
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'AndrewRadev/splitjoin.vim'
-
-" languages
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'rust-lang/rust.vim'
-Plugin 'fatih/vim-go'
-Plugin 'leafgarland/typescript-vim'
-
-" themes
-Plugin 'dadleyy/gruvbox'
-Plugin 'vim-airline/vim-airline-themes'
-
-" formatting
-
-" turn filetype back on
-call vundle#end()
+" prep vim-plug
+source ~/.vim/bundle/vim-plug/plug.vim
+call plug#begin('~/.vim/bundle')
+" " ui
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'ctrlpvim/ctrlp.vim'
+" " tools
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'AndrewRadev/splitjoin.vim'
+" " languages
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go'
+Plug 'leafgarland/typescript-vim'
+Plug 'jparise/vim-graphql'
+Plug 'cakebaker/scss-syntax.vim'
+" " themes
+Plug 'dadleyy/gruvbox'
+Plug 'vim-airline/vim-airline-themes'
+call plug#end()
 
 " line numbers
 set nu
