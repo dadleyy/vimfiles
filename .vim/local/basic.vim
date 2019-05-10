@@ -3,7 +3,7 @@ set nocompatible
 filetype off 
 
 " prep vim-plug
-source ~/.vim/bundle/vim-plug/plug.vim
+source ~/.vim/vim-plug/plug.vim
 call plug#begin('~/.vim/bundle')
 " " ui
 Plug 'Valloric/YouCompleteMe'
@@ -19,7 +19,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go'
-Plug 'leafgarland/typescript-vim'
+Plug 'dadleyy/typescript-vim'
 Plug 'jparise/vim-graphql'
 Plug 'cakebaker/scss-syntax.vim'
 " " themes
