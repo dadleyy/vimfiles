@@ -12,8 +12,15 @@ function git_ps1() {
     return
   fi
 
-  local branch_name="$(git rev-parse --abbrev-ref HEAD)"
-  local remote="$(git ls-remote --get-url | sed -e "s/^git@github.com://" -e "s/.git$//")"
+  local branch_name="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
+  local remotes="$(git remote 2> /dev/null)"
+  local remote="$(basename $git_root)"
+
+  if [ "" != "${remotes}" ]
+  then
+    remote="$(git ls-remote --get-url | sed -e "s/^git@github.com://" -e "s/.git$//")"
+  fi
+
   echo -e "\033[1;34m(${remote} - ${branch_name}) \033[0m"
 }
 

@@ -5,7 +5,11 @@
   c = commit
   d = diff
   cl = clean -dfX
+  publish = push -u origin HEAD
+  sl = rebase -i HEAD~2
   l = log --pretty='format:%C(ul)%h%Creset |%C(yellow)%<(16,trunc) %an %Creset|%C(yellow)%<(25,trunc) %ae %Creset| %<(80,trunc)%C(cyan)%s %Creset| %C(green)%ad%Creset' --no-merges --date='format:%b %d, %Y'
 [user]
   name = Danny Hadley
   email = dadleyy@gmail.com
+[core]
+	editor = vim
