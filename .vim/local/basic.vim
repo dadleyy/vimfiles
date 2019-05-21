@@ -6,12 +6,12 @@ filetype off
 source ~/.vim/vim-plug/plug.vim
 call plug#begin('~/.vim/bundle')
 " " ui
-Plug 'Valloric/YouCompleteMe'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'ctrlpvim/ctrlp.vim'
 " " tools
+Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'AndrewRadev/splitjoin.vim'

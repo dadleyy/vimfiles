@@ -11,15 +11,9 @@ let g:go_template_use_pkg=0
 let g:ycm_confirm_extra_conf=0
 let g:ycm_open_loclist_on_ycm_diags=0
 let g:ycm_auto_trigger=1
-let g:ycm_collect_identifiers_from_tags_files=1
+let g:ycm_collect_identifiers_from_tags_files=0
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_show_diagnostics_ui=0
-
-" let b:ale_fixers={'javascript': ['eslint']}
-" let g:ale_completion_enabled=0
-" let g:ale_linters_explicit=1
-" let g:ale_set_loclist=0
-" let g:ale_set_quickfix=0
 
 let g:rustfmt_autosave=1
 
