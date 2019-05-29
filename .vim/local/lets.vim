@@ -35,6 +35,7 @@ let g:airline_mode_map={
     \ }
 
 let g:airline_section_x=''
+let g:airline_section_error=0
 
 " netrw
 let g:netrw_sort_by='name'

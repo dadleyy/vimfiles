@@ -23,7 +23,7 @@ Plug 'dadleyy/typescript-vim'
 Plug 'jparise/vim-graphql'
 Plug 'cakebaker/scss-syntax.vim'
 " " themes
-Plug 'dadleyy/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
