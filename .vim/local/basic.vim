@@ -10,11 +10,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'ctrlpvim/ctrlp.vim'
+
 " " tools
 Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'AndrewRadev/splitjoin.vim'
+
 " " languages
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'rust-lang/rust.vim'
@@ -22,6 +24,7 @@ Plug 'fatih/vim-go'
 Plug 'dadleyy/typescript-vim'
 Plug 'jparise/vim-graphql'
 Plug 'cakebaker/scss-syntax.vim'
+
 " " themes
 Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
