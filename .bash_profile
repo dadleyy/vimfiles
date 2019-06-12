@@ -8,7 +8,7 @@ export EDITOR="vim"
 function git_ps1() {
   local git_root=$(git rev-parse --show-toplevel --quiet 2> /dev/null)
 
-  if [ "" == "${git_root}" ]
+  if [[ "" == "${git_root}" ]];
   then
     PS1="\033[0;92m> \033[0m"
     return
@@ -19,14 +19,14 @@ function git_ps1() {
   local remote="$(basename $git_root)"
   local changes=$(git status --porcelain 2> /dev/null)
 
-  if [ "" != "${remotes}" ]
+  if [[ "" != "${remotes}" ]];
   then
     remote="$(git ls-remote --get-url | sed -e "s/^git@github.com://" -e "s/.git$//")"
   fi
 
   local change_color="32"
 
-  if [ "" != "$(git status --porcelain 2> /dev/null)" ]
+  if [[ "" != "$(git status --porcelain 2> /dev/null)" ]];
   then
     change_color="35"
   fi
@@ -36,6 +36,11 @@ function git_ps1() {
 
 # Process grep + kill prompt
 function pp() {
+  if [[ "" == $1 ]]; then
+    echo "must provide a process expression - e.g 'pp ndoe'"
+    return
+  fi
+
   if [[ "$(pgrep -i "$1")" == "" ]]; then
     echo "nothing to do"
     return 1
