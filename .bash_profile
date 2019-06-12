@@ -30,7 +30,7 @@ function git_ps1() {
     change_color="35"
   fi
 
-  PS1="\033[1;34m(${remote} - \033[31m${branch_name}\033[34m) \033[0m"
+  PS1="\033[1;34m(${remote} - \033[${change_color}m${branch_name}\033[34m) \033[0m"
 }
 
 export PROMPT_COMMAND=git_ps1
