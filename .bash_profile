@@ -1,6 +1,7 @@
 export PATH="${PATH}:/usr/local/go/bin"
 export PATH="${PATH}:/Applications/MacVim.app/Contents/bin"
 export PATH="${PATH}:/usr/local/node/bin"
+export PATH="${PATH}:${HOME}/.yarn/bin"
 set -o vi
 export EDITOR="vim"
 
@@ -31,6 +32,27 @@ function git_ps1() {
   fi
 
   PS1="\033[1;34m(${remote} - \033[${change_color}m${branch_name}\033[34m) \033[0m"
+}
+
+# Process grep + kill prompt
+function pp() {
+  if [[ "$(pgrep -i "$1")" == "" ]]; then
+    echo "nothing to do"
+    return 1
+  fi
+
+  pgrep -i "$1" | xargs ps -p
+  echo $processes
+  read -p "Kill? " do_kill
+
+  if [[ $do_kill == "yes" ]]; then
+    echo "killing..."
+    pgrep -i "$1" | xargs kill -9
+    echo "done..."
+    return
+  fi
+
+  echo "done"
 }
 
 export PROMPT_COMMAND=git_ps1
