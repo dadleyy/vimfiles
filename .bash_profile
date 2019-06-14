@@ -14,7 +14,7 @@ function git_ps1() {
 
   if [[ "" == "${git_root}" ]];
   then
-    PS1="> "
+    print "> "
     return
   fi
 
@@ -35,7 +35,7 @@ function git_ps1() {
     change_color=${yellow}
   fi
 
-  PS1="(${remote}${part_delim}${change_color}${branch_name}${reset}) "
+  print "(${remote}${part_delim}${change_color}${branch_name}${reset}) "
 }
 
 # Process grep + kill prompt
@@ -67,3 +67,8 @@ function pp() {
 export PROMPT_COMMAND=git_ps1
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# Setting PATH for Python 2.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
