@@ -6,11 +6,15 @@ set -o vi
 export EDITOR="vim"
 
 function git_ps1() {
+  local reset='\e[0m'
+  local yellow='\e[0;33m'
+  local green='\e[0;32m'
+  local part_delim="·"
   local git_root=$(git rev-parse --show-toplevel --quiet 2> /dev/null)
 
   if [[ "" == "${git_root}" ]];
   then
-    PS1="\033[0;92m> \033[0m"
+    PS1="> "
     return
   fi
 
@@ -24,14 +28,14 @@ function git_ps1() {
     remote="$(git ls-remote --get-url | sed -e "s/^git@github.com://" -e "s/.git$//")"
   fi
 
-  local change_color="32"
+  local change_color=${green}
 
   if [[ "" != "$(git status --porcelain 2> /dev/null)" ]];
   then
-    change_color="35"
+    change_color=${yellow}
   fi
 
-  PS1="\033[1;34m(${remote} - \033[${change_color}m${branch_name}\033[34m) \033[0m"
+  PS1="(${remote}${part_delim}${change_color}${branch_name}${reset}) "
 }
 
 # Process grep + kill prompt
