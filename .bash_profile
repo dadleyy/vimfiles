@@ -14,7 +14,7 @@ function git_ps1() {
 
   if [[ "" == "${git_root}" ]];
   then
-    print "> "
+    printf "> "
     return
   fi
 
@@ -35,7 +35,7 @@ function git_ps1() {
     change_color=${yellow}
   fi
 
-  print "(${remote}${part_delim}${change_color}${branch_name}${reset}) "
+  printf "(${remote}${part_delim}${change_color}${branch_name}${reset}) "
 }
 
 # Process grep + kill prompt
@@ -64,7 +64,7 @@ function pp() {
   echo "done"
 }
 
-export PROMPT_COMMAND=git_ps1
+# export PROMPT_COMMAND=git_ps1
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
