@@ -6,9 +6,9 @@ set -o vi
 export EDITOR="vim"
 
 function git_ps1() {
-  local reset='\e[0m'
-  local yellow='\e[0;33m'
-  local green='\e[0;32m'
+  local reset=''
+  local yellow=''
+  local green=''
   local part_delim="·"
   local git_root=$(git rev-parse --show-toplevel --quiet 2> /dev/null)
 
