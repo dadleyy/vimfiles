@@ -9,7 +9,7 @@ function git_ps1() {
   local reset=''
   local yellow=''
   local green=''
-  local part_delim="·"
+  local part_delim=" › "
   local git_root=$(git rev-parse --show-toplevel --quiet 2> /dev/null)
 
   if [[ "" == "${git_root}" ]];
@@ -33,7 +33,7 @@ function git_ps1() {
   if [[ "" != "$(git status --porcelain 2> /dev/null)" ]];
   then
     change_color=${yellow}
-    part_delim="˕"
+    part_delim=" ± "
   fi
 
   PS1="(${remote}${part_delim}${change_color}${branch_name}${reset}) "
