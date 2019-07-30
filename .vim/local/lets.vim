@@ -6,6 +6,8 @@ let mapleader=" "
 let g:go_info_mode='gocode'
 let g:go_template_autocreate=0
 let g:go_template_use_pkg=0
+let g:go_fmt_fail_silently=0
+let g:go_debug=['shell-commands']
 
 " you complete me
 let g:ycm_confirm_extra_conf=0
@@ -14,6 +16,8 @@ let g:ycm_auto_trigger=1
 let g:ycm_collect_identifiers_from_tags_files=0
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_show_diagnostics_ui=0
+let g:ycm_enable_diagnostic_signs=0
+let g:ycm_enable_diagnostic_highlighting=0
 
 let g:rustfmt_autosave=1
 

@@ -100,3 +100,5 @@ set cursorcolumn!
 set nocursorline!
 
 set noballooneval
+
+set cmdheight=1
