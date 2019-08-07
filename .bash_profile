@@ -2,6 +2,7 @@ export PATH="${PATH}:/usr/local/go/bin"
 export PATH="${PATH}:/Applications/MacVim.app/Contents/bin"
 export PATH="${PATH}:/usr/local/node/bin"
 export PATH="${PATH}:${HOME}/.yarn/bin"
+export PATH="${PATH}:${HOME}/go/bin"
 set -o vi
 export EDITOR="vim"
 
