@@ -9,6 +9,9 @@ let g:go_template_use_pkg=0
 let g:go_fmt_fail_silently=0
 let g:go_debug=['shell-commands']
 
+" elm
+let g:elm_setup_keybindings=0
+
 " you complete me
 let g:ycm_confirm_extra_conf=0
 let g:ycm_open_loclist_on_ycm_diags=0
