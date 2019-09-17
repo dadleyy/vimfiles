@@ -4,6 +4,7 @@ export PATH="${PATH}:/usr/local/node/bin"
 export PATH="${PATH}:/usr/local/elm/bin"
 export PATH="${PATH}:${HOME}/.yarn/bin"
 export PATH="${PATH}:${HOME}/go/bin"
+export PATH="$HOME/.cargo/bin:$PATH"
 set -o vi
 export EDITOR="vim"
 
