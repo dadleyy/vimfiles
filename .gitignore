@@ -1,11 +1,2 @@
 .netrwhist
-/.vim/bundle/*
-/.vim/enabled.d
-/.vim/autoload
-/.vim/.VimballRecord
-/.vim/doc
-/.vim/view
-/.vim/plugin
-/.vim/syntax
-/.vim/vim-plug
-/nvim/bundle
+/editor-configs/nvim/bundle

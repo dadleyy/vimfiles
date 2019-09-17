@@ -3,7 +3,7 @@ set nocompatible
 filetype off 
 
 " prep vim-plug
-source ~/.vim/vim-plug/plug.vim
+source ~/.vim/bundle/vim-plug/plug.vim
 call plug#begin('~/.vim/bundle')
 " " ui
 Plug 'vim-airline/vim-airline'
@@ -12,7 +12,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " " tools
-Plug 'Valloric/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer --rust-completer --go-completer' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'AndrewRadev/splitjoin.vim'
@@ -20,7 +20,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 " " languages
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'rust-lang/rust.vim'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'dadleyy/typescript-vim'
 Plug 'jparise/vim-graphql'
 Plug 'ElmCast/elm-vim'
@@ -35,7 +35,7 @@ call plug#end()
 set nu
 
 " color scheme
-colorscheme gruvbox
+silent! colorscheme gruvbox
 set background=dark
 
 " spaces all day

@@ -1,0 +1,56 @@
+#!/bin/bash
+
+function setup() {
+  local root="$(cd "$(dirname "$0")" ; pwd -P)"
+  echo "++ dotfiles setup (from ${root})"
+
+  local bash_ext_source="${root}/shell-configs/bash/.bash_extensions"
+  local bash_ext_destination="${HOME}/.bash_ext"
+  local vimrc_source="${root}/editor-configs/vim/.vimrc"
+  local vimrc_destination="${HOME}/.vimrc"
+  local vim_bundle="${HOME}/.vim/bundle"
+  local vim_plug_destination="${vim_bundle}/vim-plug"
+
+  if [[ ! -f "${bash_ext_source}" ]]; then
+    echo "[error] unable to find bash extensions source here, tried '${bash_ext_source}'"
+    exit 1
+  fi
+
+  if [[ ! -f "${vimrc_source}" ]]; then
+    echo "[error] unable to find vimrc source here, tried '${vimrc_source}'"
+    exit 1
+  fi
+
+  # start with the vim bundle dir
+
+  if [[ -L $vim_bundle || -d $vim_bundle || -f $vim_bundle ]]; then
+    echo "[info] vim bundle directory ('${vim_bundle}') already exists, removing"
+    rm -rf $vim_bundle
+  fi
+
+  mkdir -p $vim_bundle
+  echo "[info] cloning vim-plug to '${vim_plug_destination}'"
+  git clone git@github.com:junegunn/vim-plug.git $vim_plug_destination
+
+  # remove old vimrc
+
+  if [[ -f "${vimrc_destination}" || -L "${vimrc_destination}" ]]; then
+    echo "[info] vimrc present, removing"
+    rm $vimrc_destination
+  fi
+
+  echo "[info] installing '${vimrc_source}' to '${vimrc_destination}'"
+  ln -s $vimrc_source $vimrc_destination
+  echo "[info] vimrc installed at '${vimrc_destination}', running vim-plug install"
+  vim +PlugInstall +qall
+
+  if [[ -f "${bash_ext_destination}" || -L "${bash_ext_destination}" ]]; then
+    echo "[info] bash extension already present, removing"
+    rm $bash_ext_destination
+  fi
+
+  echo "[info] installing '${bash_ext_source}' to '${bash_ext_destination}'"
+  ln -s $bash_ext_source $bash_ext_destination
+}
+
+setup
