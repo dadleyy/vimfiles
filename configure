@@ -1,8 +1,27 @@
 #!/bin/bash
 
+function useage() {
+  echo "Useage: configure [OPTIONS]"
+  echo ""
+  echo "Options:"
+  echo "    -u  performs unsafe installation, exiting if anything already exists"
+  return
+}
+
 function setup() {
   local root="$(cd "$(dirname "$0")" ; pwd -P)"
-  echo "++ dotfiles setup (from ${root})"
+
+  local OPTIND opt
+
+  local unsafe=0
+
+  while getopts ':u' opt; do
+    case $opt in
+      u) unsafe=1;;
+      :) useage;;
+      \?) useage && exit 1;;
+    esac
+  done
 
   local bash_ext_source="${root}/shell-configs/bash/.bash_extensions"
   local bash_ext_destination="${HOME}/.bash_ext"
@@ -21,36 +40,54 @@ function setup() {
     exit 1
   fi
 
-  # start with the vim bundle dir
-
   if [[ -L $vim_bundle || -d $vim_bundle || -f $vim_bundle ]]; then
+    if [[ $unsafe == 0 ]]; then
+      echo "[error] vim bundle director '${vim_bundle}' found during safe installation, exiting"
+      exit 1
+    fi
+
     echo "[info] vim bundle directory ('${vim_bundle}') already exists, removing"
     rm -rf $vim_bundle
   fi
 
-  mkdir -p $vim_bundle
-  echo "[info] cloning vim-plug to '${vim_plug_destination}'"
-  git clone git@github.com:junegunn/vim-plug.git $vim_plug_destination
-
-  # remove old vimrc
-
   if [[ -f "${vimrc_destination}" || -L "${vimrc_destination}" ]]; then
+    if [[ $unsafe == 0 ]]; then
+      echo "[error] vimrc found '${vimrc_destination}' found during safe installation, exiting"
+      exit 1
+    fi
+
     echo "[info] vimrc present, removing"
     rm $vimrc_destination
   fi
+
+  if [[ -f "${bash_ext_destination}" || -L "${bash_ext_destination}" ]]; then
+    if [[ $unsafe == 0 ]]; then
+      echo "[error] bash ext file '${bash_ext_destination}' found during safe installation, exiting."
+      exit 1
+    fi
+
+    echo "[info] bash extension already present, removing"
+    rm $bash_ext_destination
+  fi
+
+  if [[ -d "${vim_plug_destination}" || -L "${bash_ext_destination}" ]]; then
+    if [[ $unsafe == 0 ]]; then
+      echo "[error] vim-plug found '${vim_plug_destination}' found during safe installation, exiting."
+      exit 1
+    fi
+  fi
+
+  mkdir -p $vim_bundle
+  echo "[info] cloning vim-plug to '${vim_plug_destination}'"
+  git clone --quiet git@github.com:junegunn/vim-plug.git $vim_plug_destination
 
   echo "[info] installing '${vimrc_source}' to '${vimrc_destination}'"
   ln -s $vimrc_source $vimrc_destination
   echo "[info] vimrc installed at '${vimrc_destination}', running vim-plug install"
   vim +PlugInstall +qall
 
-  if [[ -f "${bash_ext_destination}" || -L "${bash_ext_destination}" ]]; then
-    echo "[info] bash extension already present, removing"
-    rm $bash_ext_destination
-  fi
-
   echo "[info] installing '${bash_ext_source}' to '${bash_ext_destination}'"
   ln -s $bash_ext_source $bash_ext_destination
 }
 
-setup
+setup "$@"
