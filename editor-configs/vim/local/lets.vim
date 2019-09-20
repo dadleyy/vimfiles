@@ -1,3 +1,5 @@
+let s:local_dir=fnamemodify(expand('<sfile>', ':h'), ':h')
+
 " macvim
 let macvim_skip_colorscheme=1
 let mapleader=" "
@@ -13,6 +15,7 @@ let g:go_debug=['shell-commands']
 let g:elm_setup_keybindings=0
 
 " you complete me
+let g:ycm_global_ycm_extra_conf=resolve(s:local_dir . '/../.ycm_extra_conf.py')
 let g:ycm_confirm_extra_conf=0
 let g:ycm_open_loclist_on_ycm_diags=0
 let g:ycm_auto_trigger=1
