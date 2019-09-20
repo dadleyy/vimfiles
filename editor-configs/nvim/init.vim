@@ -1,35 +1,23 @@
-" plugin management
 set nocompatible
-filetype off
-
-let s:bundle=fnamemodify(expand('<sfile>'), ':h') . '/bundle'
-let s:vimplug=s:bundle . '/vim-plug/plug.vim'
-execute "source " . s:vimplug
-
-call plug#begin(s:bundle)
-Plug 'junegunn/vim-plug'
-Plug 'tpope/vim-fugitive'
-Plug 'gruvbox-community/gruvbox'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'AndrewRadev/splitjoin.vim'
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'rust-lang/rust.vim'
-Plug 'fatih/vim-go'
-Plug 'jparise/vim-graphql'
-Plug 'leafgarland/typescript-vim'
-
-Plug 'Valloric/YouCompleteMe'
-call plug#end()
-
 syntax enable
 filetype plugin indent on 
+
+if !isdirectory(expand("$HOME") . "/.vim/bundle/vim-plug")
+  echo "vim-plug missing, try running the configure script included in github.com/dadleyy/vimfiles"
+  finish
+end
+
+source ~/.vim/bundle/vim-plug/plug.vim
+call plug#begin('~/.vim/bundle')
+Plug 'gruvbox-community/gruvbox'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ctrlpvim/ctrlp.vim'
+call plug#end()
 
 " basic settings
 set nu
@@ -49,7 +37,7 @@ set autoindent
 set smartindent
 
 " colors
-colorscheme gruvbox
+silent! colorscheme gruvbox
 set background=dark
 set colorcolumn=120
 set ls=2

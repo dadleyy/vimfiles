@@ -11,83 +11,136 @@ function useage() {
 function setup() {
   local root="$(cd "$(dirname "$0")" ; pwd -P)"
 
-  local OPTIND opt
-
-  local unsafe=0
-
-  while getopts ':u' opt; do
-    case $opt in
-      u) unsafe=1;;
-      :) useage;;
-      \?) useage && exit 1;;
-    esac
-  done
-
   local bash_ext_source="${root}/shell-configs/bash/.bash_extensions"
   local bash_ext_destination="${HOME}/.bash_ext"
   local vimrc_source="${root}/editor-configs/vim/.vimrc"
   local vimrc_destination="${HOME}/.vimrc"
   local vim_bundle="${HOME}/.vim/bundle"
   local vim_plug_destination="${vim_bundle}/vim-plug"
+  local nvim_init_source="${root}/editor-configs/nvim/init.vim"
+  local nvim_init_destination="${HOME}/.config/nvim/init.vim"
 
-  if [[ ! -f "${bash_ext_source}" ]]; then
-    echo "[error] unable to find bash extensions source here, tried '${bash_ext_source}'"
-    exit 1
-  fi
+  local OPTIND opt
 
-  if [[ ! -f "${vimrc_source}" ]]; then
-    echo "[error] unable to find vimrc source here, tried '${vimrc_source}'"
-    exit 1
-  fi
+  local installs=("")
 
-  if [[ -L $vim_bundle || -d $vim_bundle || -f $vim_bundle ]]; then
-    if [[ $unsafe == 0 ]]; then
-      echo "[error] vim bundle director '${vim_bundle}' found during safe installation, exiting"
+  local unsafe=0
+  local nvim=0
+  local vim=0
+  local bash=0
+
+  while getopts ':unvb' opt; do
+    case $opt in
+      u) unsafe=1;;
+      n)
+        installs[1]="nvim"
+        nvim=1;;
+      v)
+        installs[2]="vim"
+        vim=1
+        ;;
+      b)
+        installs[0]="bash"
+        bash=1
+        ;;
+      :) useage;;
+      \?) useage && exit 1;;
+    esac
+  done
+
+  echo "[info] installing: ${installs[*]}"
+
+  # BASH
+  if [[ $bash == 1 ]]; then
+    if [[ ! -f "${bash_ext_source}" ]]; then
+      echo "[error] unable to find bash extensions source here, tried '${bash_ext_source}'"
       exit 1
     fi
 
-    echo "[info] vim bundle directory ('${vim_bundle}') already exists, removing"
-    rm -rf $vim_bundle
-  fi
+    if [[ -f "${bash_ext_destination}" || -L "${bash_ext_destination}" ]]; then
+      if [[ $unsafe == 0 ]]; then
+        echo "[error] bash ext file '${bash_ext_destination}' found during safe installation, exiting."
+        exit 1
+      fi
 
-  if [[ -f "${vimrc_destination}" || -L "${vimrc_destination}" ]]; then
-    if [[ $unsafe == 0 ]]; then
-      echo "[error] vimrc found '${vimrc_destination}' found during safe installation, exiting"
-      exit 1
+      echo "[info] bash extension already present, removing"
+      rm $bash_ext_destination
     fi
 
-    echo "[info] vimrc present, removing"
-    rm $vimrc_destination
+    echo "[info] installing '${bash_ext_source}' to '${bash_ext_destination}'"
+    ln -s $bash_ext_source $bash_ext_destination
   fi
 
-  if [[ -f "${bash_ext_destination}" || -L "${bash_ext_destination}" ]]; then
-    if [[ $unsafe == 0 ]]; then
-      echo "[error] bash ext file '${bash_ext_destination}' found during safe installation, exiting."
-      exit 1
+  # COMMON VIM PLUGINS
+  if [[ $nvim == 1 || $vim == 1 ]]; then
+    if [[ -L $vim_bundle || -d $vim_bundle || -f $vim_bundle ]]; then
+      if [[ $unsafe == 0 ]]; then
+        echo "[error] vim bundle director '${vim_bundle}' found during safe installation, exiting"
+        exit 1
+      fi
+
+      echo "[info] vim bundle directory ('${vim_bundle}') already exists, removing"
+      rm -rf $vim_bundle
     fi
 
-    echo "[info] bash extension already present, removing"
-    rm $bash_ext_destination
-  fi
-
-  if [[ -d "${vim_plug_destination}" || -L "${bash_ext_destination}" ]]; then
-    if [[ $unsafe == 0 ]]; then
+    if [[ -d "${vim_plug_destination}" && $unsafe == 0 ]]; then
       echo "[error] vim-plug found '${vim_plug_destination}' found during safe installation, exiting."
       exit 1
     fi
+
+    rm -rf $vim_plug_destination
+    mkdir -p $vim_bundle
+    echo "[info] cloning vim-plug to '${vim_plug_destination}'"
+    git clone git@github.com:junegunn/vim-plug.git $vim_plug_destination
   fi
 
-  mkdir -p $vim_bundle
-  echo "[info] cloning vim-plug to '${vim_plug_destination}'"
-  git clone --quiet git@github.com:junegunn/vim-plug.git $vim_plug_destination
+  # VIM
+  if [[ $vim == 1 ]]; then
+    if [[ ! -f "${vimrc_source}" ]]; then
+      echo "[error] unable to find vimrc source here, tried '${vimrc_source}'"
+      exit 1
+    fi
 
-  echo "[info] installing '${vimrc_source}' to '${vimrc_destination}'"
-  ln -s $vimrc_source $vimrc_destination
-  echo "[info] vimrc installed at '${vimrc_destination}', running vim-plug install"
-  vim +PlugInstall +qall
+    if [[ -f "${vimrc_destination}" || -L "${vimrc_destination}" ]]; then
+      if [[ $unsafe == 0 ]]; then
+        echo "[error] vimrc found '${vimrc_destination}' found during safe installation, exiting"
+        exit 1
+      fi
 
-  echo "[info] installing '${bash_ext_source}' to '${bash_ext_destination}'"
-  ln -s $bash_ext_source $bash_ext_destination
+      echo "[info] vimrc present, removing"
+      rm $vimrc_destination
+    fi
+
+    echo "[info] installing '${vimrc_source}' to '${vimrc_destination}'"
+    ln -s $vimrc_source $vimrc_destination
+    echo "[info] vimrc installed at '${vimrc_destination}', running vim-plug install"
+    vim +PlugInstall +qall
+  fi
+
+  # NEOVIM
+  if [[ $nvim == 1 ]]; then
+    local config_dir=$(dirname "${nvim_init_destination}")
+
+    if [[ ! -f "${nvim_init_source}" ]]; then
+      echo "[error] unable to find nvim init source here, tried '${nvim_init_source}'"
+      exit 1
+    fi
+
+    if [[ -f $config_dir || -d $config_dir || -L $config_dir ]]; then
+      if [[ $unsafe == 0 ]]; then
+        echo "[error] attempted to clean '${config_dir}' w/o providing unsafe flag"
+        exit 1
+      fi
+
+      echo "[info] removing old config directory '${config_dir}'"
+      rm -rf $config_dir
+    fi
+
+    echo "[info] linking '${nvim_init_source}' to '${nvim_init_destination}'"
+    mkdir -p $config_dir
+    ln -s $nvim_init_source $nvim_init_destination
+    nvim +PlugInstall +qall
+  fi
 }
 
 setup "$@"
