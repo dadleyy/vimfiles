@@ -81,9 +81,11 @@ let g:airline_mode_map={
     \ 'S'  : 'S',
     \ '' : 'S',
     \ }
-
 let g:airline_section_x=''
 let g:airline_section_error=0
+
+" rust
+let g:rustfmt_autosave=1
 
 " mappings
 noremap <leader>q :split<CR>:Explore<CR>

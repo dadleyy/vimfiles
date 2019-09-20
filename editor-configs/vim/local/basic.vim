@@ -21,7 +21,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'dadleyy/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'jparise/vim-graphql'
 Plug 'ElmCast/elm-vim'
 Plug 'cakebaker/scss-syntax.vim'
