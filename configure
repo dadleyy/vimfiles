@@ -5,6 +5,9 @@ function useage() {
   echo ""
   echo "Options:"
   echo "    -u  performs unsafe installation, exiting if anything already exists"
+  echo "    -n  configures neovim (will install vim-plug to \$HOME/.vim/bundle)"
+  echo "    -v  configures vim (will install vim-plug to \$HOME/.vim/bundle)"
+  echo "    -b  configures bash"
   return
 }
 
