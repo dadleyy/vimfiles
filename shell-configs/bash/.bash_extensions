@@ -75,6 +75,8 @@ export PROMPT_COMMAND=git_ps1
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+alias vimup="vim +PlugUpdate +qall"
+
 # Setting PATH for Python 2.7
 # The original version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
