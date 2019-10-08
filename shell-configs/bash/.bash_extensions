@@ -76,6 +76,7 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 alias vimup="vim +PlugUpdate +qall"
+alias nvimup="nvim +PlugUpdate +qall"
 
 # Setting PATH for Python 2.7
 # The original version is saved in .bash_profile.pysave
