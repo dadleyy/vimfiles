@@ -9,6 +9,7 @@ export PATH="${HOME}/go/bin:${PATH}"
 export PATH="$HOME/.cargo/bin:${PATH}"
 set -o vi
 export EDITOR="vim"
+export GPG_TTY=$(tty)
 
 function git_ps1() {
   local reset=''

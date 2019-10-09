@@ -14,6 +14,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'cespare/vim-toml'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
@@ -27,7 +28,6 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 set encoding=utf-8
-set ruler
 set mousehide
 set noerrorbells visualbell t_vb=
 set guioptions-=r
@@ -38,10 +38,10 @@ set ignorecase
 set smartcase
 set autoindent
 set smartindent
+set noshowcmd
+set noruler
 set completeopt-=preview
 
-" colors
-colorscheme gruvbox
 set background=dark
 set colorcolumn=120
 set ls=2
@@ -56,6 +56,13 @@ let g:netrw_sort_by='name'
 let g:netrw_localrmdir='rm -r'
 let g:netrw_nobeval=1
 let g:netrw_keepdir=0
+
+" colors
+if isdirectory(expand("$HOME") . "/.vim/bundle/gruvbox")
+  colorscheme gruvbox
+else
+  finish
+end
 
 " ycm
 let g:ycm_confirm_extra_conf=0
