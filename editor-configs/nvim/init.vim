@@ -58,7 +58,6 @@ let g:netrw_localrmdir='rm -r'
 let g:netrw_nobeval=1
 let g:netrw_keepdir=0
 
-<<<<<<< HEAD
 " colors
 if isdirectory(expand("$HOME") . "/.vim/bundle/gruvbox")
   colorscheme gruvbox
@@ -66,8 +65,6 @@ else
   finish
 end
 
-=======
->>>>>>> adding some neovim configs
 " ycm
 let g:ycm_confirm_extra_conf=0
 let g:ycm_open_loclist_on_ycm_diags=0
