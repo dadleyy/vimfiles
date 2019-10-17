@@ -5,19 +5,22 @@ filetype off
 " prep vim-plug
 source ~/.vim/bundle/vim-plug/plug.vim
 call plug#begin('~/.vim/bundle')
-" " ui
+" self reference
+Plug 'junegunn/vim-plug'
+
+" ui
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'ctrlpvim/ctrlp.vim'
 
-" " tools
+" tools
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer --rust-completer --go-completer' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'AndrewRadev/splitjoin.vim'
 
-" " languages
+" languages
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -26,7 +29,7 @@ Plug 'jparise/vim-graphql'
 Plug 'ElmCast/elm-vim'
 Plug 'cakebaker/scss-syntax.vim'
 
-" " themes
+" themes
 Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
