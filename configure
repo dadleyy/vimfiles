@@ -14,6 +14,12 @@ function useage() {
 function setup() {
   local root="$(cd "$(dirname "$0")" ; pwd -P)"
 
+  local zshenv_source="${root}/shell-configs/zsh/.zshenv"
+  local zshenv_destination="${HOME}/.zshenv"
+  local zshrc_source="${root}/shell-configs/zsh/.zshrc"
+  local zshrc_destination="${HOME}/.zsh/.zshrc"
+  local zshrc_dir="$(dirname $zshrc_destination)"
+
   local bash_ext_source="${root}/shell-configs/bash/.bash_extensions"
   local bash_ext_destination="${HOME}/.bash_ext"
   local vimrc_source="${root}/editor-configs/vim/.vimrc"
@@ -25,36 +31,59 @@ function setup() {
 
   local OPTIND opt
 
-  local installs=("")
+  local installs=()
 
-  local unsafe=0
-  local nvim=0
-  local vim=0
-  local bash=0
-
-  while getopts ':unvb' opt; do
+  while getopts ':unvbz' opt; do
     case $opt in
       u) unsafe=1;;
-      n)
-        installs[1]="nvim"
-        nvim=1;;
-      v)
-        installs[2]="vim"
-        vim=1
-        ;;
       b)
         installs[0]="bash"
-        bash=1
+        ;;
+      n)
+        installs[1]="nvim"
+        ;;
+      v)
+        installs[2]="vim"
+        ;;
+      z)
+        installs[3]="zshell"
         ;;
       :) useage;;
       \?) useage && exit 1;;
     esac
   done
 
-  echo "[info] installing: ${installs[*]}"
+  echo "[debug] before installs: '0[${installs[0]}] 1[${installs[1]}] 2[${installs[2]}] 3[${installs[3]}]"
+
+  # ZSH
+  if [[ "${installs[3]}" == "zshell" ]]; then
+    if [[ ! -f $zshenv_source ]]; then
+      echo "[error] unable to find zshell source at '${zshenv_source}'"
+      exit 1
+    fi
+
+    if [[ -f $zshenv_destination || -L $zshenv_destination ]]; then
+      echo "[debug:zsh] found previous zshenv at '${zshenv_destination}'"
+      rm $zshenv_destination
+    fi
+
+    if [[ ! -d $zshrc_dir ]]; then
+      echo "[debug:zsh] unable to find '${zshrc_destination}', creating (${zshrc_dir})"
+      mkdir -p $zshrc_dir
+    else
+      echo "[debug:zsh] found '${zshrc_dir}', deleting"
+      rm -rf $zshrc_dir
+      mkdir -p $zshrc_dir
+    fi
+
+    echo "[debug:zsh] linking zshenv: '${zshenv_source} -> ${zshenv_destination}'"
+    ln -s $zshenv_source $zshenv_destination
+    echo "[debug:zsh] linking zshrc: '${zshrc_source} -> ${zshrc_destination}'"
+    ln -s $zshrc_source $zshrc_destination
+  fi
 
   # BASH
-  if [[ $bash == 1 ]]; then
+  if [[ "${installs[0]}" == "bash" ]]; then
     if [[ ! -f "${bash_ext_source}" ]]; then
       echo "[error] unable to find bash extensions source here, tried '${bash_ext_source}'"
       exit 1
@@ -66,23 +95,23 @@ function setup() {
         exit 1
       fi
 
-      echo "[info] bash extension already present, removing"
+      echo "[debug:bash] bash extension already present, removing"
       rm $bash_ext_destination
     fi
 
-    echo "[info] installing '${bash_ext_source}' to '${bash_ext_destination}'"
+    echo "[debug:bash] installing '${bash_ext_source}' to '${bash_ext_destination}'"
     ln -s $bash_ext_source $bash_ext_destination
   fi
 
   # COMMON VIM PLUGINS
-  if [[ $nvim == 1 || $vim == 1 ]]; then
+  if [[ "${installs[2]}" == "vim" || "${installs[1]}" == "nvim" ]]; then
     if [[ -L $vim_bundle || -d $vim_bundle || -f $vim_bundle ]]; then
       if [[ $unsafe == 0 ]]; then
         echo "[error] vim bundle director '${vim_bundle}' found during safe installation, exiting"
         exit 1
       fi
 
-      echo "[info] vim bundle directory ('${vim_bundle}') already exists, removing"
+      echo "[debug:nvim-vim] vim bundle directory ('${vim_bundle}') already exists, removing"
       rm -rf $vim_bundle
     fi
 
@@ -93,12 +122,12 @@ function setup() {
 
     rm -rf $vim_plug_destination
     mkdir -p $vim_bundle
-    echo "[info] cloning vim-plug to '${vim_plug_destination}'"
+    echo "[debug:nvim-vim] cloning vim-plug to '${vim_plug_destination}'"
     git clone git@github.com:junegunn/vim-plug.git $vim_plug_destination
   fi
 
   # VIM
-  if [[ $vim == 1 ]]; then
+  if [[ "${installs[2]}" == "vim" ]]; then
     if [[ ! -f "${vimrc_source}" ]]; then
       echo "[error] unable to find vimrc source here, tried '${vimrc_source}'"
       exit 1
@@ -110,18 +139,18 @@ function setup() {
         exit 1
       fi
 
-      echo "[info] vimrc present, removing"
+      echo "[debug:vim] vimrc present, removing"
       rm $vimrc_destination
     fi
 
-    echo "[info] installing '${vimrc_source}' to '${vimrc_destination}'"
+    echo "[debug:vim] installing '${vimrc_source}' to '${vimrc_destination}'"
     ln -s $vimrc_source $vimrc_destination
-    echo "[info] vimrc installed at '${vimrc_destination}', running vim-plug install"
+    echo "[debug:vim] vimrc installed at '${vimrc_destination}', running vim-plug install"
     vim +PlugInstall +qall
   fi
 
   # NEOVIM
-  if [[ $nvim == 1 ]]; then
+  if [[ "${installs[1]}" == "nvim" ]]; then
     local config_dir=$(dirname "${nvim_init_destination}")
 
     if [[ ! -f "${nvim_init_source}" ]]; then
@@ -135,11 +164,11 @@ function setup() {
         exit 1
       fi
 
-      echo "[info] removing old config directory '${config_dir}'"
+      echo "[debug:nvim] removing old config directory '${config_dir}'"
       rm -rf $config_dir
     fi
 
-    echo "[info] linking '${nvim_init_source}' to '${nvim_init_destination}'"
+    echo "[debug:nvim] linking '${nvim_init_source}' to '${nvim_init_destination}'"
     mkdir -p $config_dir
     ln -s $nvim_init_source $nvim_init_destination
     nvim +PlugInstall +qall
