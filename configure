@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
+
+# probably bad zsh coding below. use at own risk.
 
 function useage() {
   echo "Useage: configure [OPTIONS]"
@@ -8,6 +10,7 @@ function useage() {
   echo "    -n  configures neovim (will install vim-plug to \$HOME/.vim/bundle)"
   echo "    -v  configures vim (will install vim-plug to \$HOME/.vim/bundle)"
   echo "    -b  configures bash"
+  echo "    -g  configures git"
   return
 }
 
@@ -19,6 +22,9 @@ function setup() {
   local zshrc_source="${root}/shell-configs/zsh/.zshrc"
   local zshrc_destination="${HOME}/.zsh/.zshrc"
   local zshrc_dir="$(dirname $zshrc_destination)"
+
+  local git_destination="${HOME}/.config/git/.git-ext"
+  local git_source="${root}/.gitconfig"
 
   local bash_ext_source="${root}/shell-configs/bash/.bash_extensions"
   local bash_ext_destination="${HOME}/.bash_ext"
@@ -33,30 +39,33 @@ function setup() {
 
   local installs=()
 
-  while getopts ':unvbz' opt; do
+  while getopts ':unvbzg' opt; do
     case $opt in
       u) unsafe=1;;
       b)
-        installs[0]="bash"
+        installs+=("bash")
+        ;;
+      g)
+        installs+=("git")
         ;;
       n)
-        installs[1]="nvim"
+        installs+=("nvim")
         ;;
       v)
-        installs[2]="vim"
+        installs+=("vim")
         ;;
       z)
-        installs[3]="zshell"
+        installs+=("zshell")
         ;;
       :) useage;;
       \?) useage && exit 1;;
     esac
   done
 
-  echo "[debug] before installs: '0[${installs[0]}] 1[${installs[1]}] 2[${installs[2]}] 3[${installs[3]}]"
+  echo "[debug] before installs: '${installs:t}'"
 
   # ZSH
-  if [[ "${installs[3]}" == "zshell" ]]; then
+  if [[ ${installs[(ie)zshell]} -le ${#installs} ]]; then
     if [[ ! -f $zshenv_source ]]; then
       echo "[error] unable to find zshell source at '${zshenv_source}'"
       exit 1
@@ -83,7 +92,7 @@ function setup() {
   fi
 
   # BASH
-  if [[ "${installs[0]}" == "bash" ]]; then
+  if [[ ${installs[(ie)bash]} -le ${#installs} ]]; then
     if [[ ! -f "${bash_ext_source}" ]]; then
       echo "[error] unable to find bash extensions source here, tried '${bash_ext_source}'"
       exit 1
@@ -104,7 +113,7 @@ function setup() {
   fi
 
   # COMMON VIM PLUGINS
-  if [[ "${installs[2]}" == "vim" || "${installs[1]}" == "nvim" ]]; then
+  if [[ ${installs[(ie)vim]} -le ${#installs} || ${installs[(ie)nvim]} -le ${#installs} ]]; then
     if [[ -L $vim_bundle || -d $vim_bundle || -f $vim_bundle ]]; then
       if [[ $unsafe == 0 ]]; then
         echo "[error] vim bundle director '${vim_bundle}' found during safe installation, exiting"
@@ -127,7 +136,7 @@ function setup() {
   fi
 
   # VIM
-  if [[ "${installs[2]}" == "vim" ]]; then
+  if [[ ${installs[(ie)vim]} -le ${#installs} ]]; then
     if [[ ! -f "${vimrc_source}" ]]; then
       echo "[error] unable to find vimrc source here, tried '${vimrc_source}'"
       exit 1
@@ -150,7 +159,7 @@ function setup() {
   fi
 
   # NEOVIM
-  if [[ "${installs[1]}" == "nvim" ]]; then
+  if [[ ${installs[(ie)nvim]} -le ${#installs} ]]; then
     local config_dir=$(dirname "${nvim_init_destination}")
 
     if [[ ! -f "${nvim_init_source}" ]]; then
@@ -172,6 +181,23 @@ function setup() {
     mkdir -p $config_dir
     ln -s $nvim_init_source $nvim_init_destination
     nvim +PlugInstall +qall
+  fi
+
+  if [[ ${installs[(ie)git]} -le ${#installs} ]]; then
+    local dest_dir=$(dirname $git_destination)
+    echo "[debug:git] installing git in '${dest_dir}'"
+
+    if [[ -d $dest_dir ]]; then
+      echo "[debug:git] removing old git config dir ('${dest_dir}')"
+      rm -rf $dest_dir
+    fi
+
+    mkdir -p $dest_dir
+    echo "[debug:git] linking '${git_source}' -> '${git_destination}'"
+    ln -s $git_source $git_destination
+    echo "[debug:git] git extensions '${git_destination}', add the following to '${HOME}/.gitconfig' to source:\n"
+    echo "[include]"
+    echo "  path = '${git_destination}'\n"
   fi
 }
 
