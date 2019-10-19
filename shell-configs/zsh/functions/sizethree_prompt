@@ -1,0 +1,41 @@
+#!/bin/zsh
+
+sizethree_prompt() {
+  local reset=''
+  local yellow=''
+  local green=''
+  local part_delim=" › "
+  local git_root=$(git rev-parse --show-toplevel --quiet 2> /dev/null)
+  local host_info=""
+
+  if [[ -f "${HOME}/.config/dadleyy/host-info" ]]; then
+    host_info="[$(cat "${HOME}/.config/dadleyy/host-info")]"
+  fi
+
+  if [[ "" == "${git_root}" ]];
+  then
+    PS1="$host_info> "
+    return
+  fi
+
+  local branch_name="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
+  local remotes="$(git remote 2> /dev/null)"
+  local remote="$(basename $git_root)"
+  local changes=$(git status --porcelain 2> /dev/null)
+
+  if [[ "" != "${remotes}" ]];
+  then
+    remote="$(git ls-remote --get-url | sed -e "s/^git@github.com://" -e "s/.git$//")"
+  fi
+
+  local change_color=${green}
+
+  if [[ "" != "$(git status --porcelain 2> /dev/null)" ]];
+  then
+    change_color=${yellow}
+    part_delim=" ± "
+  fi
+
+  PROMPT="$host_info(${remote}${part_delim}${change_color}${branch_name}${reset}) "
+  RPROMPT='$vcs_info_msg_0_'
+}

@@ -1,3 +1,0 @@
-prompt_sizethree_setup() {
-  PROMPT="> "
-}

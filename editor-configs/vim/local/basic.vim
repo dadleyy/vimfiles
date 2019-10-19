@@ -28,6 +28,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'jparise/vim-graphql'
 Plug 'ElmCast/elm-vim'
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'zsh-users/zsh-syntax-highlighting'
 
 " themes
 Plug 'gruvbox-community/gruvbox'

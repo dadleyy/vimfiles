@@ -1,8 +1,14 @@
 fpath=(${HOME}/.config/zsh/functions $fpath)
-autoload -Uz vcs_info promptinit
-
-set -o vi
-setopt PROMPT_SUBST
+autoload -Uz vcs_info sizethree_prompt compinit
+precmd_functions+=(vcs_info)
+precmd_functions+=(sizethree_prompt)
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '!'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:*' formats '(%F{2}%r%f %u%c %F{3}%b%f)'
+setopt prompt_subst
+setopt vi
 
 export PATH="/usr/local/go/bin:${PATH}"
 export PATH="/Applications/MacVim.app/Contents/bin:${PATH}"
@@ -17,6 +23,3 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 alias vimup="vim +PlugUpdate +qall"
-
-promptinit
-prompt sizethree
