@@ -1,9 +1,9 @@
 #!/bin/zsh
 
 sizethree_prompt() {
-  local reset=''
-  local yellow=''
-  local green=''
+  local reset='%f'
+  local yellow='%F{3}'
+  local green='%F{2}'
   local part_delim=" › "
   local git_root=$(git rev-parse --show-toplevel --quiet 2> /dev/null)
   local host_info=""
@@ -37,5 +37,4 @@ sizethree_prompt() {
   fi
 
   PROMPT="$host_info(${remote}${part_delim}${change_color}${branch_name}${reset}) "
-  RPROMPT='$vcs_info_msg_0_'
 }
