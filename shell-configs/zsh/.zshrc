@@ -1,12 +1,7 @@
 fpath=(${HOME}/.config/zsh/functions $fpath)
-autoload -Uz vcs_info sizethree_prompt compinit
-# precmd_functions+=(vcs_info)
+autoload -Uz sizethree_prompt compinit
+compinit
 precmd_functions+=(sizethree_prompt)
-# zstyle ':vcs_info:*' enable git
-# zstyle ':vcs_info:*' check-for-changes true
-# zstyle ':vcs_info:*' unstagedstr '+'
-# zstyle ':vcs_info:*' stagedstr '⩲'
-# zstyle ':vcs_info:*' formats '(%F{2}%r%f %u%c %F{3}%b%f)'
 setopt prompt_subst
 setopt vi
 
