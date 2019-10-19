@@ -9,9 +9,12 @@ end
 
 source ~/.vim/bundle/vim-plug/plug.vim
 call plug#begin('~/.vim/bundle')
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --rust-completer' }
+Plug 'rust-lang/rust.vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'cespare/vim-toml'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vim-airline/vim-airline'
@@ -25,19 +28,20 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 set encoding=utf-8
-set ruler
 set mousehide
 set noerrorbells visualbell t_vb=
 set guioptions-=r
 set guioptions-=L
+set guicursor=
 set noswapfile
 set ignorecase
 set smartcase
 set autoindent
 set smartindent
+set noshowcmd
+set noruler
+set completeopt-=preview
 
-" colors
-silent! colorscheme gruvbox
 set background=dark
 set colorcolumn=120
 set ls=2
@@ -52,6 +56,25 @@ let g:netrw_sort_by='name'
 let g:netrw_localrmdir='rm -r'
 let g:netrw_nobeval=1
 let g:netrw_keepdir=0
+
+" colors
+if isdirectory(expand("$HOME") . "/.vim/bundle/gruvbox")
+  colorscheme gruvbox
+else
+  finish
+end
+
+" ycm
+let g:ycm_confirm_extra_conf=0
+let g:ycm_open_loclist_on_ycm_diags=0
+let g:ycm_auto_trigger=1
+let g:ycm_collect_identifiers_from_tags_files=0
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_show_diagnostics_ui=0
+let g:ycm_enable_diagnostic_signs=0
+let g:ycm_max_diagnostics_to_display=0
+let g:ycm_enable_diagnostic_highlighting=1
+let g:ycm_rust_src_path=systemlist('rustc --print sysroot')[0] . '/lib/rustlib/src/rust/src'
 
 " ctrlp
 let g:ctrlp_open_new_file='h'
