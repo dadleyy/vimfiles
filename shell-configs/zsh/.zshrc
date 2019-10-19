@@ -1,3 +1,9 @@
+fpath=(${HOME}/.config/zsh/functions $fpath)
+autoload -Uz vcs_info promptinit
+
+set -o vi
+setopt PROMPT_SUBST
+
 export PATH="/usr/local/go/bin:${PATH}"
 export PATH="/Applications/MacVim.app/Contents/bin:${PATH}"
 export PATH="/usr/local/node/bin:${PATH}"
@@ -10,8 +16,7 @@ export EDITOR=vim
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-set -o vi
-setopt PROMPT_SUBST
-PROMPT="> "
-
 alias vimup="vim +PlugUpdate +qall"
+
+promptinit
+prompt sizethree

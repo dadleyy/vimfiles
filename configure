@@ -19,8 +19,10 @@ function setup() {
 
   local zshenv_source="${root}/shell-configs/zsh/.zshenv"
   local zshenv_destination="${HOME}/.zshenv"
+  local zsh_fn_source="${root}/shell-configs/zsh/functions"
+  local zsh_fn_destination="${HOME}/.config/zsh/functions"
   local zshrc_source="${root}/shell-configs/zsh/.zshrc"
-  local zshrc_destination="${HOME}/.zsh/.zshrc"
+  local zshrc_destination="${HOME}/.config/zsh/.zshrc"
   local zshrc_dir="$(dirname $zshrc_destination)"
 
   local git_destination="${HOME}/.config/git/.git-ext"
@@ -89,6 +91,8 @@ function setup() {
     ln -s $zshenv_source $zshenv_destination
     echo "[debug:zsh] linking zshrc: '${zshrc_source} -> ${zshrc_destination}'"
     ln -s $zshrc_source $zshrc_destination
+    echo "[debug:zsh] linking zsh functions: '${zsh_fn_source} -> ${zsh_fn_destination}'"
+    ln -s $zsh_fn_source $zsh_fn_destination
   fi
 
   # BASH
