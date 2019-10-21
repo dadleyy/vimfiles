@@ -5,6 +5,9 @@ precmd_functions+=(sizethree_prompt)
 setopt prompt_subst
 setopt vi
 
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+
 export PATH="/usr/local/go/bin:${PATH}"
 export PATH="/Applications/MacVim.app/Contents/bin:${PATH}"
 export PATH="/usr/local/node/bin:${PATH}"
