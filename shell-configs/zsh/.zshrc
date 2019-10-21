@@ -16,6 +16,7 @@ export PATH="${HOME}/.yarn/bin:${PATH}"
 export PATH="${HOME}/go/bin:${PATH}"
 export PATH="$HOME/.cargo/bin:${PATH}"
 
+export GPG_TTY=$(tty)
 export EDITOR=vim
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
