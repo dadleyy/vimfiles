@@ -24,3 +24,4 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 alias vimup="vim +PlugUpdate +qall"
+unsetopt prompt_cr
