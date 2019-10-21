@@ -15,6 +15,7 @@ export PATH="/usr/local/elm/bin:${PATH}"
 export PATH="${HOME}/.yarn/bin:${PATH}"
 export PATH="${HOME}/go/bin:${PATH}"
 export PATH="$HOME/.cargo/bin:${PATH}"
+export PATH="$HOME/.config/dadleyy/bin:${PATH}"
 
 export GPG_TTY=$(tty)
 export EDITOR=vim
