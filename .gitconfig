@@ -5,6 +5,7 @@
   c = commit
   d = diff
   cl = clean -dfX
+  bl = branch --list
   up = pull --rebase origin master
   publish = push -u origin HEAD
   pf = publish -f
