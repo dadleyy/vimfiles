@@ -5,8 +5,10 @@ precmd_functions+=(sizethree_prompt)
 setopt prompt_subst
 setopt vi
 
-bindkey -v
-bindkey '^R' history-incremental-search-backward
+unsetopt prompt_cr
+
+bindkey -v '^R' history-incremental-search-backward
+bindkey -v '^?' backward-delete-char
 
 export PATH="/usr/local/go/bin:${PATH}"
 export PATH="/Applications/MacVim.app/Contents/bin:${PATH}"
@@ -24,4 +26,3 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 alias vimup="vim +PlugUpdate +qall"
-unsetopt prompt_cr
