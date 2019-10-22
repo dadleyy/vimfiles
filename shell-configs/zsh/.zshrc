@@ -27,3 +27,4 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 alias vimup="vim +PlugUpdate +qall"
 alias s="source sal"
+alias nvimup="nvim +PlugUpdate +qall"
