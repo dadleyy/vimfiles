@@ -64,6 +64,7 @@ set smartcase
 " indent helpah
 set autoindent
 set smartindent
+set smarttab
 
 " screw swap fils
 set noswapfile
