@@ -26,3 +26,4 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 alias vimup="vim +PlugUpdate +qall"
+alias s="source sal"
