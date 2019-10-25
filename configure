@@ -17,6 +17,9 @@ function useage() {
 function setup() {
   local root="$(cd "$(dirname "$0")" ; pwd -P)"
 
+  local tmuxrc_source="${root}/shell-configs/tmux/.tmux.conf"
+  local tmuxrc_destination="${HOME}/.tmux.conf"
+
   local zshenv_source="${root}/shell-configs/zsh/.zshenv"
   local zshenv_destination="${HOME}/.zshenv"
   local zsh_fn_source="${root}/shell-configs/zsh/functions"
@@ -41,9 +44,12 @@ function setup() {
 
   local installs=()
 
-  while getopts ':unvbzg' opt; do
+  while getopts ':unvbzgt' opt; do
     case $opt in
       u) unsafe=1;;
+      t)
+        installs+=("tmux")
+        ;;
       b)
         installs+=("bash")
         ;;
@@ -65,6 +71,22 @@ function setup() {
   done
 
   echo "[debug] before installs: '${installs:t}'"
+
+  # TMUX
+  if [[ ${installs[(ie)tmux]} -le ${#installs} ]]; then
+    if [[ ! -f $tmuxrc_source ]]; then
+      echo "[error] unable to find zshell source at '${zshenv_source}'"
+      exit 1
+    fi
+
+    if [[ -f $tmuxrc_destination || -L $tmuxrc_destination ]]; then
+      echo "[debug:tmux] found previous zshenv at '${tmuxrc_destination}'"
+      rm $tmuxrc_destination
+    fi
+
+    echo "[debug:tmux] linking: '${tmuxrc_source}' -> '${tmuxrc_destination}'"
+    ln -s $tmuxrc_source $tmuxrc_destination
+  fi
 
   # ZSH
   if [[ ${installs[(ie)zshell]} -le ${#installs} ]]; then
