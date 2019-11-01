@@ -5,6 +5,9 @@ precmd_functions+=(sizethree_prompt)
 setopt prompt_subst
 setopt vi
 
+setopt inc_append_history
+setopt share_history
+
 unsetopt prompt_cr
 
 bindkey -v '^R' history-incremental-search-backward

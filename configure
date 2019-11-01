@@ -6,11 +6,13 @@ function useage() {
   echo "Useage: configure [OPTIONS]"
   echo ""
   echo "Options:"
-  echo "    -u  performs unsafe installation, exiting if anything already exists"
-  echo "    -n  configures neovim (will install vim-plug to \$HOME/.vim/bundle)"
-  echo "    -v  configures vim (will install vim-plug to \$HOME/.vim/bundle)"
   echo "    -b  configures bash"
   echo "    -g  configures git"
+  echo "    -n  configures neovim (will install vim-plug to \$HOME/.vim/bundle)"
+  echo "    -t  configures tmux"
+  echo "    -u  performs unsafe installation, exiting if anything already exists"
+  echo "    -v  configures vim (will install vim-plug to \$HOME/.vim/bundle)"
+  echo "    -z  configures zsh"
   return
 }
 
@@ -44,7 +46,7 @@ function setup() {
 
   local installs=()
 
-  while getopts ':unvbzgt' opt; do
+  while getopts ':bgntuvz' opt; do
     case $opt in
       u) unsafe=1;;
       t)
