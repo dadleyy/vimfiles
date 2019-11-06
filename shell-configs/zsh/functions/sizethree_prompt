@@ -25,7 +25,7 @@ sizethree_prompt() {
 
   if [[ "" != "${remotes}" ]];
   then
-    remote="$(git ls-remote --get-url | sed -e "s/^git@github.com://" -e "s/.git$//")"
+    remote="$(git ls-remote --get-url | sed -E "s/^(git@github.com:|^git@bitbucket.org:)(.*)\.git/\2/")"
   fi
 
   local change_color=${green}
