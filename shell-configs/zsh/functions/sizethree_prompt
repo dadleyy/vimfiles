@@ -5,36 +5,45 @@ sizethree_prompt() {
   local yellow='%F{3}'
   local green='%F{2}'
   local part_delim=" › "
-  local git_root=$(git rev-parse --show-toplevel --quiet 2> /dev/null)
   local host_info=""
+  local battery_info=""
+
+  local current_dir="$(pwd)"
+  local name=$(uname)
+  local branch_name="$(git symbolic-ref --short HEAD 2> /dev/null)"
+  local context="$(basename $current_dir)"
 
   if [[ -f "${HOME}/.config/dadleyy/host-info" ]]; then
     host_info="[$(cat "${HOME}/.config/dadleyy/host-info")]"
   fi
 
-  if [[ "" == "${git_root}" ]];
-  then
-    PS1="$host_info> "
+  if [[ "Darwin" == $name && $(which pmget) != "" ]]; then
+    local percent="$(pmset -g batt | sed -e "s/.*\([0-9]\{2\}\)\%.*/\1/g" | sed -n '2 p')"
+
+    if [[ "" != "${percent}" ]]; then
+      battery_info="{${percent}%%} "
+    fi
+  fi
+
+  if [[ "" == "${branch_name}" ]]; then
+    PS1="$host_info$battery_info> "
     return
   fi
 
-  local branch_name="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
-  local remotes="$(git remote 2> /dev/null)"
-  local remote="$(basename $git_root)"
-  local changes=$(git status --porcelain 2> /dev/null)
+  local dest="$(git ls-remote --get-url 2> /dev/null | sed -E "s/^(git@github.com:|^git@bitbucket.org:)(.*)\.git/\2/")"
 
-  if [[ "" != "${remotes}" ]];
-  then
-    remote="$(git ls-remote --get-url | sed -E "s/^(git@github.com:|^git@bitbucket.org:)(.*)\.git/\2/")"
+  if [[ "" != "${dest}" ]]; then
+    context="${dest}"
   fi
 
   local change_color=${green}
+  local changes="$(git diff-index --name-only HEAD -- 2> /dev/null)"
 
-  if [[ "" != "$(git status --porcelain 2> /dev/null)" ]];
+  if [[ "" != "${changes}" ]];
   then
     change_color=${yellow}
     part_delim=" ± "
   fi
 
-  PROMPT="$host_info(${remote}${part_delim}${change_color}${branch_name}${reset}) "
+  PROMPT="$host_info$battery_info(${context}${part_delim}${change_color}${branch_name}${reset}) "
 }
