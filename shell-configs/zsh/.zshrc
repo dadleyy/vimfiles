@@ -15,6 +15,7 @@ bindkey -v '^?' backward-delete-char
 
 export PATH="/usr/local/go/bin:${PATH}"
 export PATH="/Applications/MacVim.app/Contents/bin:${PATH}"
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:${PATH}"
 export PATH="/usr/local/node/bin:${PATH}"
 export PATH="/usr/local/elm/bin:${PATH}"
 export PATH="${HOME}/.rbenv/shims:${HOME}/.rbenv/bin:${PATH}"
