@@ -17,11 +17,11 @@ sizethree_prompt() {
     host_info="[$(cat "${HOME}/.config/dadleyy/host-info")]"
   fi
 
-  if [[ "Darwin" == $name && $(which pmget) != "" ]]; then
-    local percent="$(pmset -g batt | sed -e "s/.*\([0-9]\{2\}\)\%.*/\1/g" | sed -n '2 p')"
+  if [[ "Darwin" == $name && $(which battrs) != "" ]]; then
+    local percent="$(battrs)"
 
     if [[ "" != "${percent}" ]]; then
-      battery_info="{${percent}%%} "
+      battery_info="${percent} "
     fi
   fi
 
