@@ -15,7 +15,6 @@ bindkey -v '^?' backward-delete-char
 
 export PATH="/usr/local/go/bin:${PATH}"
 export PATH="/usr/local/node/bin:${PATH}"
-export PATH="/usr/local/elm/bin:${PATH}"
 
 # osx applications
 export PATH="/Applications/MacVim.app/Contents/bin:${PATH}"
@@ -26,6 +25,7 @@ export PATH="${HOME}/.rbenv/shims:${HOME}/.rbenv/bin:${PATH}"
 export PATH="${HOME}/.yarn/bin:${PATH}"
 export PATH="${HOME}/.cargo/bin:${PATH}"
 export PATH="${HOME}/.config/dadleyy/bin:${PATH}"
+export PATH="${PATH}:${HOME}/.elm/versions/active/bin"
 
 export PATH="${HOME}/go/bin:${PATH}"
 
