@@ -148,6 +148,13 @@ function setup() {
         exit 1
       fi
 
+      local go_cache="${vim_bundle}/YouCompleteMe/third_party/ycmd/third_party/go"
+
+      if [[ -d $go_cache ]]; then
+        echo "[debug:nvim-vim] previous go modules directory present, cleaning"
+        GOPATH="${go_cache}" go clean -modcache
+      fi
+
       echo "[debug:nvim-vim] vim bundle directory ('${vim_bundle}') already exists, removing"
       rm -rf $vim_bundle
     fi
