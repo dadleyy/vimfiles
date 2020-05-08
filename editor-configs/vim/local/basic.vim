@@ -5,13 +5,13 @@ filetype off
 " prep vim-plug
 source ~/.vim/bundle/vim-plug/plug.vim
 call plug#begin('~/.vim/bundle')
+
 " self reference
 Plug 'junegunn/vim-plug'
 
 " ui
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " tools
@@ -21,12 +21,10 @@ Plug 'tpope/vim-repeat'
 Plug 'AndrewRadev/splitjoin.vim'
 
 " languages
+Plug 'leafgarland/typescript-vim'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'rust-lang/rust.vim'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'leafgarland/typescript-vim'
 Plug 'jparise/vim-graphql'
-Plug 'ElmCast/elm-vim'
 Plug 'cakebaker/scss-syntax.vim'
 
 " themes
@@ -105,5 +103,7 @@ set cursorcolumn!
 set nocursorline!
 
 set noballooneval
+
+set redrawtime=10000
 
 set cmdheight=1
