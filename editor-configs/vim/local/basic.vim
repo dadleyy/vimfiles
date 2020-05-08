@@ -22,6 +22,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 " languages
 Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'rust-lang/rust.vim'
 Plug 'jparise/vim-graphql'
