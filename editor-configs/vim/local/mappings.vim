@@ -13,6 +13,7 @@ noremap <leader>] :pop<CR>
 
 " remove highlight
 noremap <leader>cs :noh<cr>
+noremap <leader>rl :Prettier<cr>
 
 " splits
 noremap <leader>q :split<CR>:Explore<CR>

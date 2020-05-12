@@ -15,6 +15,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " tools
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer --rust-completer --go-completer' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
