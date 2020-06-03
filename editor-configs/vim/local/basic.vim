@@ -28,6 +28,7 @@ Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'rust-lang/rust.vim'
 Plug 'jparise/vim-graphql'
 Plug 'cakebaker/scss-syntax.vim'
+Plug 'lifepillar/pgsql.vim'
 
 " themes
 Plug 'gruvbox-community/gruvbox'

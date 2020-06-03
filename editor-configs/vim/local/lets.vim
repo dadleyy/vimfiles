@@ -14,6 +14,9 @@ let g:go_debug=['shell-commands']
 " elm
 let g:elm_setup_keybindings=0
 
+" sql
+let g:sql_type_default = 'pgsql'
+
 " you complete me
 let g:ycm_global_ycm_extra_conf=resolve(s:local_dir . '/../.ycm_extra_conf.py')
 let g:ycm_confirm_extra_conf=0
