@@ -1,0 +1,54 @@
+#!/bin/bash
+
+function install() {
+  local script_path=$(dirname $(realpath -s $0))
+  local tmp_path=$(realpath $script_path/../../tmp)
+  local version="8.2.0940"
+  local download_url="https://github.com/vim/vim/archive/v${version}.tar.gz"
+
+  echo "installing vim, environment:"
+  echo "    script path: ${script_path}"
+  echo "       tmp path: ${tmp_path}"
+  echo "    vim version: ${version}"
+  echo "   download url: ${download_url}"
+  echo ""
+  echo "preparing to downloading vim from '${download_url}' (from ${script_path})"
+
+  read -p "look good? " continue_install
+
+  if [[ "${continue_install}" != "yes" ]]; then
+    echo "not ready, bailing out - ${continue_install}"
+    return
+  fi
+
+  echo "continuing installation w/ ${continue_install}"
+
+  if [[ -d $tmp_path ]]; then
+    echo "found tmp dir, clearing"
+    rm -rf $tmp_path
+  fi
+
+  mkdir -p $tmp_path
+  curl -L --output $tmp_path/vim.tar.gz $download_url
+  pushd $tmp_path
+  tar xvzf vim.tar.gz
+  pushd vim-$version
+  ./configure --enable-pythoninterp=yes --enable-python3interp=yes
+  make
+
+  read -p "vim compiled and ready for install, continue? " continue_install
+
+  if [[ "${continue_install}" != "yes" ]]; then
+    echo "not ready, bailing out"
+    popd
+    popd
+    return
+  fi
+
+  sudo make install
+
+  popd
+  popd
+}
+
+install

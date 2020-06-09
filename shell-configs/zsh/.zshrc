@@ -15,6 +15,7 @@ bindkey -v '^?' backward-delete-char
 
 export PATH="/usr/local/go/bin:${PATH}"
 export PATH="/usr/local/node/bin:${PATH}"
+export PATH="/usr/local/bin:${PATH}"
 
 # osx applications
 export PATH="/Applications/MacVim.app/Contents/bin:${PATH}"

@@ -1,4 +1,5 @@
 .netrwhist
+/tmp
 /editor-configs/nvim/bundle
 /shell-configs/zsh/functions/*.zwc
 /shell-configs/zsh/functions/_*
