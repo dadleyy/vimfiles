@@ -110,3 +110,4 @@ set noballooneval
 set redrawtime=10000
 
 set cmdheight=1
+set mmp=5000
