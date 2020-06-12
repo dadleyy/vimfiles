@@ -33,7 +33,8 @@ function install() {
   pushd $tmp_path
   tar xvzf vim.tar.gz
   pushd vim-$version
-  ./configure --enable-pythoninterp=yes --enable-python3interp=yes
+
+  ./configure --enable-pythoninterp=yes --enable-python3interp=yes --with-compiledby='dadleyy/vimfiles'
   make
 
   read -p "vim compiled and ready for install, continue? " continue_install
@@ -47,6 +48,8 @@ function install() {
 
   sudo make install
 
+  echo "cleaning up"
+  rm -rf $tmp_path
   popd
   popd
 }
