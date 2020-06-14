@@ -1,6 +1,8 @@
 " be improved
 set nocompatible 
+
 filetype off 
+syntax off
 
 " prep vim-plug
 source ~/.vim/bundle/vim-plug/plug.vim
@@ -47,7 +49,6 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 
-syntax enable
 
 " utf-8
 set encoding=utf-8
