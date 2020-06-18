@@ -1,9 +1,14 @@
 #!/bin/bash
 
 function install() {
+  local version=$1
+
+  if [[ $version = "" ]]; then
+    version="8.2.0940"
+  fi
+
   local script_path=$(dirname $(realpath -s $0))
   local tmp_path=$(realpath $script_path/../../tmp)
-  local version="8.2.0940"
   local download_url="https://github.com/vim/vim/archive/v${version}.tar.gz"
 
   echo "installing vim, environment:"
@@ -54,4 +59,4 @@ function install() {
   popd
 }
 
-install
+install $@
