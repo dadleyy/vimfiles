@@ -1,5 +1,9 @@
 #!/bin/bash
 
+function realpath() {
+  [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+}
+
 function install() {
   local version=$1
 
@@ -7,7 +11,8 @@ function install() {
     version="8.2.0940"
   fi
 
-  local script_path=$(dirname $(realpath -s $0))
+  echo "executing ${0}"
+  local script_path=$(dirname $(realpath $0))
   local tmp_path=$(realpath $script_path/../../tmp)
   local download_url="https://github.com/vim/vim/archive/v${version}.tar.gz"
 
