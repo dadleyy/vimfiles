@@ -19,7 +19,7 @@ export PATH="/usr/local/bin:${PATH}"
 
 # osx applications
 export PATH="/Applications/MacVim.app/Contents/bin:${PATH}"
-export PATH="/Applications/Postgres.app/Contents/Versions/9.6/bin:${PATH}"
+export PATH="/Applications/Postgres.app/Contents/Versions/12/bin:${PATH}"
 
 # package/version managers
 export PATH="${HOME}/.rbenv/shims:${HOME}/.rbenv/bin:${PATH}"
