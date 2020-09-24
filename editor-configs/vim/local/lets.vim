@@ -27,7 +27,11 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_show_diagnostics_ui=0
 let g:ycm_enable_diagnostic_signs=0
 let g:ycm_enable_diagnostic_highlighting=1
-let g:ycm_rust_src_path=systemlist('rustc --print sysroot')[0] . '/lib/rustlib/src/rust/src'
+
+let rustcroot=systemlist('rustc --print sysroot')
+if get(rustcroot, 0)
+  let g:ycm_rust_src_path=get(rustcroot, 0) . '/lib/rustlib/src/rust/src'
+endif
 
 " rust
 let g:rustfmt_autosave=1

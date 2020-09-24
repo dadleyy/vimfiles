@@ -4,8 +4,23 @@ set nocompatible
 filetype off 
 syntax off
 
+let yarn_location=systemlist('which yarn')
+let rust_location=systemlist('which cargo')
+let golang_location=systemlist('which go')
+let ycm_install_flags='./install.py'
+if get(yarn_location, 0)
+  ycm_install_flags=ycm_install_flags . ' --ts-completer'
+endif
+if get(rust_location, 0)
+  ycm_install_flags=ycm_install_flags . ' --rust-completer'
+endif
+if get(golang_location, 0)
+  ycm_install_flags=ycm_install_flags . ' --go-completer'
+endif
+
 " prep vim-plug
 source ~/.vim/bundle/vim-plug/plug.vim
+
 call plug#begin('~/.vim/bundle')
 
 " self reference
@@ -17,8 +32,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " tools
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer --rust-completer --go-completer' }
+if get(yarn_location, 0)
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+endif
+
+Plug 'ycm-core/YouCompleteMe', { 'do': ycm_install_flags }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'AndrewRadev/splitjoin.vim'

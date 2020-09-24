@@ -35,11 +35,18 @@ function install() {
 
   mkdir -p $tmp_path
   curl -L --output $tmp_path/vim.tar.gz $download_url
-  pushd $tmp_path
-  tar xvzf vim.tar.gz
-  pushd vim-$version
 
+  echo "download complete, moving into '$tmp_path'"
+  pushd $tmp_path
+
+  tar xvzf vim.tar.gz
+  local source_dir="vim-$version"
+  echo "extract complete, moving into '$source_dir'"
+  pushd $source_dir
+
+  echo "configuring vim..."
   ./configure --enable-pythoninterp=yes --enable-python3interp=yes --with-compiledby='dadleyy/vimfiles'
+  echo "configuration complete, compiling"
   make
 
   read -p "vim compiled and ready for install, continue? " continue_install
@@ -53,10 +60,11 @@ function install() {
 
   sudo make install
 
+  echo "leaving build dir"
+  popd
+  popd
   echo "cleaning up"
   rm -rf $tmp_path
-  popd
-  popd
 }
 
 install $@
