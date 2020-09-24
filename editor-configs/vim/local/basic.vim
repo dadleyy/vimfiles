@@ -4,19 +4,20 @@ set nocompatible
 filetype off 
 syntax off
 
-let yarn_location=systemlist('which yarn')
-let rust_location=systemlist('which cargo')
-let golang_location=systemlist('which go')
 let ycm_install_flags='./install.py'
-if get(yarn_location, 0)
-  ycm_install_flags=ycm_install_flags . ' --ts-completer'
+if executable('yarn')
+  let ycm_install_flags=ycm_install_flags . ' --ts-completer'
 endif
-if get(rust_location, 0)
-  ycm_install_flags=ycm_install_flags . ' --rust-completer'
+
+if executable('cargo')
+  let ycm_install_flags=ycm_install_flags . ' --rust-completer'
 endif
-if get(golang_location, 0)
-  ycm_install_flags=ycm_install_flags . ' --go-completer'
+
+if executable('go')
+ let ycm_install_flags=ycm_install_flags . ' --go-completer'
 endif
+
+echo "install args: " . ycm_install_flags
 
 " prep vim-plug
 source ~/.vim/bundle/vim-plug/plug.vim
@@ -32,7 +33,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " tools
-if get(yarn_location, 0)
+if executable('yarn')
   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 endif
 
