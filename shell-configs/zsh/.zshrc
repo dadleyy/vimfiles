@@ -19,6 +19,10 @@ export PATH="/usr/local/bin:${PATH}"
 # osx applications
 export PATH="/Applications/Postgres.app/Contents/Versions/12/bin:${PATH}"
 
+if [[ -d "${HOME}/src/salsify/kubectl_plugins/exe" ]]; then
+  export PATH="${HOME}/src/salsify/kubectl_plugins/exe:${PATH}"
+fi
+
 # package/version managers
 export PATH="${HOME}/.rbenv/shims:${HOME}/.rbenv/bin:${PATH}"
 export PATH="${HOME}/.yarn/bin:${PATH}"
