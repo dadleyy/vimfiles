@@ -17,8 +17,6 @@ if executable('go')
  let ycm_install_flags=ycm_install_flags . ' --go-completer'
 endif
 
-echo "install args: " . ycm_install_flags
-
 " prep vim-plug
 source ~/.vim/bundle/vim-plug/plug.vim
 
