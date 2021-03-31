@@ -35,6 +35,7 @@ endif
 
 " rust
 let g:rustfmt_autosave=1
+let g:rust_recommended_style = 0
 
 " airline
 let g:airline_theme='gruvbox'
@@ -64,9 +65,6 @@ let g:netrw_keepdir=0
 
 " gitgutter
 let g:gitgutter_signs=0
-
-" typescript
-" let g:typescript_indent_disable=1
 
 " ctrlp
 let g:ctrlp_open_new_file='h'

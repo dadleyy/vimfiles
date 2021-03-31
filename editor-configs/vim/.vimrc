@@ -7,6 +7,7 @@ end
 
 execute "set runtimepath+=" . s:root
 runtime! local/lets.vim
+runtime! local/plug.vim
 runtime! local/basic.vim
 runtime! local/mappings.vim
 runtime! local/autocmd.vim
