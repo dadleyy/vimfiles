@@ -1,12 +1,12 @@
+" colorscheme first
+set termguicolors
+silent! colorscheme xcodedark
+
 " be improved
 set nocompatible 
 
 " line numbers
 set nu
-
-" color scheme
-silent! colorscheme gruvbox
-set background=dark
 
 " spaces all day
 set expandtab
@@ -40,6 +40,8 @@ set guioptions-=L
 
 " gui font
 set guifont=Inconsolata\ for\ Powerline:h14
+set guicursor="sm:hor15"
+set noshowmatch
 
 " turn off annoyances
 set noerrorbells visualbell t_vb=
@@ -67,7 +69,7 @@ set re=1
 set completeopt-=preview
 
 set cursorcolumn!
-set nocursorline!
+set cursorline
 
 set noballooneval
 

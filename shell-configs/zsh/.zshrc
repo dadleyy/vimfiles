@@ -19,6 +19,10 @@ export PATH="/usr/local/bin:${PATH}"
 # osx applications
 export PATH="/Applications/Postgres.app/Contents/Versions/12/bin:${PATH}"
 
+if [[ -d "/Applications/MacVim.app/Contents/bin" ]]; then
+  export PATH="/Applications/MacVim.app/Contents/bin:${PATH}"
+fi
+
 if [[ -d "${HOME}/src/salsify/kubectl_plugins/exe" ]]; then
   export PATH="${HOME}/src/salsify/kubectl_plugins/exe:${PATH}"
 fi

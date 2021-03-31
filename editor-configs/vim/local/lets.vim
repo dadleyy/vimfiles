@@ -35,7 +35,8 @@ endif
 
 " rust
 let g:rustfmt_autosave=1
-let g:rust_recommended_style = 0
+let g:rust_recommended_style=0
+let g:rustfmt_emit_files=1
 
 " airline
 let g:airline_theme='gruvbox'

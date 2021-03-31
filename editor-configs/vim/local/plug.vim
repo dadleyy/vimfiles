@@ -50,6 +50,7 @@ Plug 'tikhomirov/vim-glsl'
 " themes
 Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'arzg/vim-colors-xcode'
 call plug#end()
 
 filetype plugin indent on 
