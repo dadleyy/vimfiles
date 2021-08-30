@@ -17,14 +17,6 @@ sizethree_prompt() {
     host_info="[$(cat "${HOME}/.config/dadleyy/host-info")]"
   fi
 
-  if [[ "Darwin" == $name && $(which battrs) != "" ]]; then
-    local percent="$(battrs)"
-
-    if [[ "" != "${percent}" ]]; then
-      battery_info="${percent} "
-    fi
-  fi
-
   if [[ "" == "${branch_name}" ]]; then
     PS1="$host_info$battery_info> "
     return

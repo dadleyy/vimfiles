@@ -16,6 +16,8 @@ bindkey -v '^?' backward-delete-char
 export PATH="/usr/local/go/bin:${PATH}"
 export PATH="/usr/local/bin:${PATH}"
 
+export PATH="${HOME}/src/salsify/flower-power/bin:${PATH}"
+
 # osx applications
 export PATH="/Applications/Postgres.app/Contents/Versions/12/bin:${PATH}"
 
@@ -44,3 +46,4 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 alias vimup="vim +PlugUpdate +qall"
 alias s="source sal"
 alias nvimup="nvim +PlugUpdate +qall"
+alias vim='/usr/local/bin/vim'
