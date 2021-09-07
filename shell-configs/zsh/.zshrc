@@ -43,6 +43,7 @@ export EDITOR=vim
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+alias cls="clear"
 alias vimup="vim +PlugUpdate +qall"
 alias s="source sal"
 alias nvimup="nvim +PlugUpdate +qall"
