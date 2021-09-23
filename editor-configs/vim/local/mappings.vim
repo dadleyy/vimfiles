@@ -33,7 +33,7 @@ noremap <leader>t :CtrlP<CR>
 noremap <leader>tf :CtrlPClearAllCaches<CR>
 
 " fugitive git bindings
-noremap <leader>lp :Gblame<CR>
+noremap <leader>lp :Git blame<CR>
 noremap <leader>le :Gedit<CR>
 noremap <leader>la :Gwrite<CR>
 noremap <leader>ll :Glog<CR>
