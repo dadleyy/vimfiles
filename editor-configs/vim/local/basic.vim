@@ -1,6 +1,6 @@
 " colorscheme first
 set termguicolors
-silent! colorscheme xcodedark
+silent! colorscheme dogrun
 
 " be improved
 set nocompatible 
@@ -74,6 +74,8 @@ set cursorline
 set noballooneval
 
 set redrawtime=10000
+
+set signcolumn=auto
 
 set cmdheight=1
 set mmp=5000

@@ -28,9 +28,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " tools
-if executable('yarn')
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-endif
+" if executable('yarn')
+"   Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" endif
 
 Plug 'ycm-core/YouCompleteMe', { 'do': ycm_install_flags }
 Plug 'tpope/vim-surround'
@@ -50,7 +50,7 @@ Plug 'tikhomirov/vim-glsl'
 " themes
 Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'arzg/vim-colors-xcode'
+Plug 'wadackel/vim-dogrun'
 call plug#end()
 
 filetype plugin indent on 
