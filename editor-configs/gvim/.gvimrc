@@ -23,6 +23,11 @@ set noswapfile
 filetype plugin indent on
 set hlsearch
 
+let g:ctrlp_open_new_file='h'
+let g:ctrlp_custom_ignore='\v[\/](public|bower_components|node_modules|tmp|dist|\.(git|hg|svn))$'
+let g:ctrlp_max_depth=100
+let g:ctrlp_user_command={'types': {1: ['.git', 'cd %s && git ls-files']}}
+
 " mappings
 let mapleader=" "
 noremap <leader>e :Explore<CR>
