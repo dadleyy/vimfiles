@@ -3,9 +3,13 @@ syntax on
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'ctrlpvim/ctrlp.vim', {'on': ['CtrlP', 'CtrlPClearAllCaches']}
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 set nu
+
+set ignorecase
+set smartcase
 
 set noerrorbells
 set novisualbell
@@ -28,11 +32,16 @@ let g:ctrlp_custom_ignore='\v[\/](public|bower_components|node_modules|tmp|dist|
 let g:ctrlp_max_depth=100
 let g:ctrlp_user_command={'types': {1: ['.git', 'cd %s && git ls-files']}}
 
+let g:rustfmt_autosave=1
+
 " mappings
 let mapleader=" "
+noremap <leader>q :split<CR>:Explore<CR>
+noremap <leader>w :Vexplore<CR>
 noremap <leader>e :Explore<CR>
-noremap <leader>w :vsplit<CR>
-noremap <leader>q :split<CR>
+
+noremap <leader>cs :noh<cr>
+
 noremap <leader>t :CtrlP<CR>
 noremap <leader>tf :CtrlPClearAllCaches<CR>
 
