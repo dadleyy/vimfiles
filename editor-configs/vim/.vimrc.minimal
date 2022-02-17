@@ -1,0 +1,16 @@
+set nu
+
+set shiftwidth=2
+set tabstop=2
+set noexpandtab
+
+set noswapfile
+
+set smartindent
+set autoindent
+
+let mapleader=" "
+
+noremap <leader>q :split<CR>:Explore<CR>
+noremap <leader>w :Vexplore<CR>
+noremap <leader>e :Explore<CR>
