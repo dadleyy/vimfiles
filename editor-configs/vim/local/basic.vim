@@ -5,7 +5,7 @@ filetype off
 syntax off
 
 let ycm_install_flags='./install.py'
-if executable('yarn')
+if executable('yarn') || executable('npm')
   let ycm_install_flags=ycm_install_flags . ' --ts-completer'
 endif
 
@@ -21,7 +21,6 @@ endif
 source ~/.vim/bundle/vim-plug/plug.vim
 
 call plug#begin('~/.vim/bundle')
-
 " self reference
 Plug 'junegunn/vim-plug'
 
@@ -31,10 +30,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " tools
-if executable('yarn')
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-endif
-
 Plug 'ycm-core/YouCompleteMe', { 'do': ycm_install_flags }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -43,11 +38,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 " languages
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'rust-lang/rust.vim'
-Plug 'jparise/vim-graphql'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'lifepillar/pgsql.vim'
 
 " themes
 Plug 'gruvbox-community/gruvbox'
