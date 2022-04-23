@@ -15,6 +15,7 @@ bindkey -v '^?' backward-delete-char
 
 export PATH="/usr/local/go/bin:${PATH}"
 export PATH="/usr/local/bin:${PATH}"
+export PATH="${HOME}/.npm-packages/bin:${PATH}"
 
 # osx applications
 export PATH="/Applications/Postgres.app/Contents/Versions/12/bin:${PATH}"
@@ -25,6 +26,7 @@ export PATH="${HOME}/.yarn/bin:${PATH}"
 export PATH="${HOME}/.cargo/bin:${PATH}"
 export PATH="${HOME}/.config/dadleyy/bin:${PATH}"
 export PATH="${PATH}:${HOME}/.elm/versions/active/bin"
+export PATH="${PATH}:${HOME}/.platformio/penv/bin"
 
 export PATH="${HOME}/go/bin:${PATH}"
 
@@ -36,3 +38,10 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 alias vimup="vim +PlugUpdate +qall"
 alias s="source sal"
 alias nvimup="nvim +PlugUpdate +qall"
+
+alias acc="arduino-cli"
+
+if [[ -z `which pio` ]]; then
+else
+  eval "$(_PIO_COMPLETE=zsh_source pio)"
+fi
