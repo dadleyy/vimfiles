@@ -17,6 +17,10 @@ export PATH="/usr/local/go/bin:${PATH}"
 export PATH="/usr/local/bin:${PATH}"
 export PATH="${HOME}/.npm-packages/bin:${PATH}"
 
+if [[ -d "${HOME}/src/third-party/pico-sdk" ]]; then
+  export PICO_SDK_PATH="${HOME}/src/third-party/pico-sdk"
+fi
+
 # osx applications
 export PATH="/Applications/Postgres.app/Contents/Versions/12/bin:${PATH}"
 
@@ -27,6 +31,10 @@ export PATH="${HOME}/.cargo/bin:${PATH}"
 export PATH="${HOME}/.config/dadleyy/bin:${PATH}"
 export PATH="${PATH}:${HOME}/.elm/versions/active/bin"
 export PATH="${PATH}:${HOME}/.platformio/penv/bin"
+
+if [[ -f "${HOME}/.config/dadleyy/zshenv" ]]; then
+  source "${HOME}/.config/dadleyy/zshenv"
+fi
 
 export PATH="${HOME}/go/bin:${PATH}"
 
