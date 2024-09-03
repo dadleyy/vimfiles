@@ -45,7 +45,7 @@ if [[ -d "/usr/local/vim-current" ]]; then
   export PATH="/usr/local/vim-current/bin:${PATH}"
 fi
 
-if [[ -z `which pio` ]]; then
-else
-  eval "$(_PIO_COMPLETE=zsh_source pio)"
-fi
+# if [[ -z `which pio` ]]; then
+# else
+#   eval "$(_PIO_COMPLETE=zsh_source pio)"
+# fi
