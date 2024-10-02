@@ -15,6 +15,9 @@ noremap <leader>] :pop<CR>
 noremap <leader>cs :noh<cr>
 noremap <leader>rl :Prettier<cr>
 
+" commands
+noremap <leader>c q:i
+
 " splits
 noremap <leader>q :split<CR>:Explore<CR>
 noremap <leader>w :Vexplore<CR>

@@ -45,7 +45,18 @@ if [[ -d "/usr/local/vim-current" ]]; then
   export PATH="/usr/local/vim-current/bin:${PATH}"
 fi
 
+if [[ -f "$HOME/.config/dadleyy/zsh-aliases" ]]; then
+  source "$HOME/.config/dadleyy/zsh-aliases"
+fi
+
 # if [[ -z `which pio` ]]; then
 # else
 #   eval "$(_PIO_COMPLETE=zsh_source pio)"
 # fi
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. "$HOME/.cargo/env"
+
+# Added by `rbenv init` on Mon Sep 23 10:22:25 AM EDT 2024
+eval "$(rbenv init - --no-rehash zsh)"

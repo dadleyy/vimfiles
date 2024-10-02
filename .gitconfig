@@ -1,5 +1,6 @@
 [alias]
   co = checkout
+  ca = commit --amend
   aa = add --all
   s = status
   c = commit
