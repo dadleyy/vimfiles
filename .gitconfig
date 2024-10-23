@@ -1,5 +1,6 @@
 [alias]
   co = checkout
+  fe = fetch --all
   ca = commit --amend
   aa = add --all
   s = status
@@ -7,6 +8,8 @@
   d = diff
   cl = clean -dfX
   bl = branch --list
+  ci = !git checkout $(git branch -a | fzf | xargs)
+  ri = !git rebase -i $(git branch -a | fzf | xargs)
   up = pull --rebase origin master
   publish = push -u origin HEAD
   pf = publish -f

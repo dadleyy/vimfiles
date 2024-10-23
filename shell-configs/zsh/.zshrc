@@ -20,6 +20,14 @@ export PATH="${HOME}/.npm-packages/bin:${PATH}"
 # osx applications
 export PATH="/Applications/Postgres.app/Contents/Versions/12/bin:${PATH}"
 
+if [ -d "/Applications/MacVim.app/Contents/bin" ]; then
+  export PATH="/Applications/MacVim.app/Contents/bin:${PATH}"
+fi
+
+if [ -d "/Applications/CMake.app" ]; then
+  export PATH="/Applications/CMake.app/Contents/bin:${PATH}"
+fi
+
 # package/version managers
 export PATH="${HOME}/.rbenv/shims:${HOME}/.rbenv/bin:${PATH}"
 export PATH="${HOME}/.yarn/bin:${PATH}"
@@ -38,11 +46,15 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 alias vimup="vim +PlugUpdate +qall"
 alias s="source sal"
 alias nvimup="nvim +PlugUpdate +qall"
-
+alias fileeater="lsof | awk '{print \$1}' | sort | uniq -c | sort -nr | head -n 10"
 alias acc="arduino-cli"
 
 if [[ -d "/usr/local/vim-current" ]]; then
   export PATH="/usr/local/vim-current/bin:${PATH}"
+fi
+
+if [[ -f "$HOME/.config/dadleyy/zsh-ext" ]]; then
+  source "$HOME/.config/dadleyy/zsh-ext"
 fi
 
 if [[ -f "$HOME/.config/dadleyy/zsh-aliases" ]]; then
@@ -53,10 +65,14 @@ fi
 # else
 #   eval "$(_PIO_COMPLETE=zsh_source pio)"
 # fi
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [ -d "$HOME/.nvm" ]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 . "$HOME/.cargo/env"
 
 # Added by `rbenv init` on Mon Sep 23 10:22:25 AM EDT 2024
-eval "$(rbenv init - --no-rehash zsh)"
+# eval "$(rbenv init - --no-rehash zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

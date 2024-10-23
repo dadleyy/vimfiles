@@ -2,57 +2,87 @@
 
 function install() {
   local version=$1
+  local python3_location=$(which python3 || echo "")
 
-  if [[ $version = "" ]]; then
-    version="8.2.0940"
+  if [[ -z "$python3_location" ]]; then
+    echo "[$0] could not find the 'python3' executable"
+    exit 1
+  fi
+
+  local python_config_dir=$(python3 -c "import sysconfig; print(sysconfig.get_config_vars()['srcdir'])")
+
+  if [[ ! -d "$python_config_dir" ]]; then
+    echo "'$python_config_dir' does not appear to be a valid directory"
+    exit 1
+  fi
+
+  if [[ -z "$version" ]]; then
+    version="9.1.0810"
   fi
 
   local script_path=$(dirname $(realpath -s $0))
+
   local tmp_path=$(realpath $script_path/../../tmp)
+
+  if [ -z $script_path ]; then
+	  script_path=$(pwd)
+	  tmp_path=$script_path/.tmp
+  fi
+
   local download_url="https://github.com/vim/vim/archive/v${version}.tar.gz"
 
-  echo "installing vim, environment:"
-  echo "    script path: ${script_path}"
-  echo "       tmp path: ${tmp_path}"
-  echo "    vim version: ${version}"
-  echo "   download url: ${download_url}"
-  echo ""
-  echo "preparing to downloading vim from '${download_url}' (from ${script_path})"
+  echo "[$0] installing vim, environment:"
+  echo "      script path: ${script_path}"
+  echo "         tmp path: ${tmp_path}"
+  echo "      vim version: ${version}"
+  echo "     download url: ${download_url}"
+  echo "  python location: ${python3_location}"
+  echo "python config dir: ${python_config_dir}"
+  echo "----"
+  echo "[$0] preparing to downloading vim from '${download_url}' (from ${script_path})"
 
-  read -p "look good? " continue_install
+  read -p "[$0] look good? " continue_install
 
-  if [[ "${continue_install}" != "yes" ]]; then
-    echo "not ready, bailing out - ${continue_install}"
+  if [[ "${continue_install}" == "yes" ]] || [[ "${continue_install}" == "y" ]]; then
+    echo "[$0] received '${continue_install}', continuing"
+  else
+    echo "[$0] not ready, bailing out. received '${continue_install}'"
     return
   fi
 
-  echo "continuing installation w/ ${continue_install}"
-
   if [[ -d $tmp_path ]]; then
-    echo "found tmp dir, clearing"
+    echo "[$0] found tmp dir, clearing"
     rm -rf $tmp_path
   fi
 
   mkdir -p $tmp_path
   curl -L --output $tmp_path/vim.tar.gz $download_url
 
-  echo "download complete, moving into '$tmp_path'"
+  echo "[$0] download complete, moving into '$tmp_path'"
   pushd $tmp_path
 
   tar xvzf vim.tar.gz
   local source_dir="vim-$version"
-  echo "extract complete, moving into '$source_dir'"
+  echo "[$0] extract complete, moving into '$source_dir'"
   pushd $source_dir
 
-  echo "configuring vim..."
-  ./configure --enable-pythoninterp=yes --enable-python3interp=yes --with-compiledby='dadleyy/vimfiles'
-  echo "configuration complete, compiling"
+  echo "[$0] configuring vim..."
+
+  ./configure \
+	  --enable-pythoninterp=yes \
+	  --enable-python3interp=yes \
+	  --with-python3-command=$python3_location \
+	  --with-python3-config-dir=$python_config_dir \
+	  --with-compiledby='dadleyy/vimfiles'
+
+  echo "[$0] configuration complete, compiling"
   make
+  ./src/vim --version
 
   read -p "vim compiled and ready for install, continue? " continue_install
 
-  if [[ "${continue_install}" != "yes" ]]; then
-    echo "not ready, bailing out"
+  if [[ "${continue_install}" != "yes" ]] && [[ "${continue_install}" != "y" ]]; then
+    echo "[$0] not ready, bailing out"
     popd
     popd
     return
@@ -60,10 +90,10 @@ function install() {
 
   sudo make install
 
-  echo "leaving build dir"
+  echo "[$0] leaving build dir"
   popd
   popd
-  echo "cleaning up"
+  echo "[$0] cleaning up"
   rm -rf $tmp_path
 }
 

@@ -34,6 +34,7 @@ Plug 'ycm-core/YouCompleteMe', { 'do': ycm_install_flags }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'keith/swift.vim'
 
 " languages
 Plug 'leafgarland/typescript-vim'
@@ -84,7 +85,7 @@ set guioptions-=r
 set guioptions-=L
 
 " gui font
-set guifont=Inconsolata\ for\ Powerline:h14
+set guifont=Inconsolata\ for\ Powerline:h16
 
 " turn off annoyances
 set noerrorbells visualbell t_vb=
