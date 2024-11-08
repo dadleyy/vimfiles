@@ -76,3 +76,15 @@ fi
 # eval "$(rbenv init - --no-rehash zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [ -f "$HOME/.rbenv" ]; then
+  eval "$(rbenv init - --no-rehash zsh)"
+fi
+
+# pnpm
+export PNPM_HOME="/home/danny/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
