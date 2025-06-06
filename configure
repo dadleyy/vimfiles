@@ -36,6 +36,8 @@ function setup() {
   local bash_ext_source="${root}/shell-configs/bash/.bash_extensions"
   local bash_ext_destination="${HOME}/.bash_ext"
   local vimrc_source="${root}/editor-configs/vim/.vimrc"
+  local coc_source="${root}/editor-configs/vim/coc-settings.json"
+  local coc_destination="${HOME}/.vim/coc-settings.json"
   local vimrc_destination="${HOME}/.vimrc"
   local vim_bundle="${HOME}/.vim/bundle"
   local vim_plug_destination="${vim_bundle}/vim-plug"
@@ -187,8 +189,14 @@ function setup() {
       rm $vimrc_destination
     fi
 
+    if [[ -f "$coc_destination" || -L "$coc_destination" ]]; then
+      echo "[debug:vim] coc-settings.json present, removing"
+      rm $coc_destination
+    fi
+
     echo "[debug:vim] installing '${vimrc_source}' to '${vimrc_destination}'"
     ln -s $vimrc_source $vimrc_destination
+    ln -s $coc_source $coc_destination
     echo "[debug:vim] vimrc installed at '${vimrc_destination}', running vim-plug install"
     vim +PlugInstall +qall
   fi

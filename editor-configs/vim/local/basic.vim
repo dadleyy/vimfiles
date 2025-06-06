@@ -4,19 +4,6 @@ set nocompatible
 filetype off 
 syntax off
 
-let ycm_install_flags='./install.py'
-if executable('yarn') || executable('npm')
-  let ycm_install_flags=ycm_install_flags . ' --ts-completer'
-endif
-
-if executable('cargo')
-  let ycm_install_flags=ycm_install_flags . ' --rust-completer'
-endif
-
-if executable('go')
- let ycm_install_flags=ycm_install_flags . ' --go-completer'
-endif
-
 " prep vim-plug
 source ~/.vim/bundle/vim-plug/plug.vim
 
@@ -30,11 +17,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " tools
-Plug 'ycm-core/YouCompleteMe', { 'do': ycm_install_flags }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'keith/swift.vim'
+Plug 'jasdel/vim-smithy'
 
 " languages
 Plug 'leafgarland/typescript-vim'
@@ -115,9 +103,11 @@ set completeopt-=preview
 set cursorcolumn!
 set nocursorline!
 
-set noballooneval
-
 set redrawtime=10000
+
+set nobackup
+set nowritebackup
+set signcolumn=yes
 
 set cmdheight=1
 set mmp=5000
