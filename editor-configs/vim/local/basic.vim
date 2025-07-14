@@ -109,5 +109,8 @@ set nobackup
 set nowritebackup
 set signcolumn=yes
 
+set clipboard=
+set mouse=
+
 set cmdheight=1
 set mmp=5000

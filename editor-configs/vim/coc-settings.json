@@ -3,5 +3,6 @@
      "inlayHint.enable": false
   },
   "rust-analyzer.completion.autoimport.enable": false,
-  "rust-analyzer.completion.callable.snippets": "none"
+  "rust-analyzer.completion.callable.snippets": "none",
+  "suggest.enableFloat": false
 }
