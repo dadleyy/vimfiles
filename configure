@@ -43,6 +43,7 @@ function setup() {
   local vim_plug_destination="${vim_bundle}/vim-plug"
   local nvim_init_source="${root}/editor-configs/nvim/init.vim"
   local nvim_init_destination="${HOME}/.config/nvim/init.vim"
+  local nvim_coc_destination="${HOME}/.config/nvim/coc-settings.json"
 
   local OPTIND opt
 
@@ -223,6 +224,7 @@ function setup() {
     echo "[debug:nvim] linking '${nvim_init_source}' to '${nvim_init_destination}'"
     mkdir -p $config_dir
     ln -s $nvim_init_source $nvim_init_destination
+    ln -s $coc_source $nvim_coc_destination
     nvim +PlugInstall +qall
   fi
 

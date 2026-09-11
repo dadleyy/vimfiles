@@ -2,6 +2,7 @@
   "[rust][lua][c]": {
      "inlayHint.enable": false
   },
+  "rust-analyzer.server.path": "rust-analyzer",
   "rust-analyzer.completion.autoimport.enable": false,
   "rust-analyzer.completion.callable.snippets": "none",
   "suggest.enableFloat": false

@@ -14,6 +14,6 @@
   publish = push -u origin HEAD
   pf = publish -f
   sl = rebase -i HEAD~2
-  l = log --pretty='format:%C(ul)%h%Creset |%C(yellow)%<(16,trunc) %an %Creset|%C(yellow)%<(20,trunc) %ae %Creset| %<(80,trunc)%C(cyan)%s %Creset| %C(green)%ad%Creset' --no-merges --date='format:%b %d, %Y'
+  l = log --pretty='format:%C(ul)%h%Creset |%C(yellow)%<(12,trunc) %an %Creset|%C(yellow)%<(20,trunc) %ae %Creset| %<(60,trunc)%C(cyan)%s %Creset| %C(green)%ad%Creset' --no-merges --date='format:%b %d, %Y'
 [core]
   editor = vim
